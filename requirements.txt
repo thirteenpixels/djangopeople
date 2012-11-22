@@ -1,5 +1,5 @@
 Django==1.4.1
-boto==2.5.2
+boto==2.6.0
 dj-database-url==0.2.1
 django-password-reset==0.2
 django-redis-cache==0.9.5
