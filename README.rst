@@ -13,6 +13,11 @@ first!
 Hacking
 -------
 
+You need `Daemontools`_ and `Foreman`_ installed.
+
+.. _Daemontools: http://cr.yp.to/daemontools.html
+.. _Foreman: https://github.com/ddollar/foreman
+
 ::
 
     git clone git@github.com:brutasse/djangopeople.git
@@ -21,14 +26,7 @@ Hacking
     pip install -r requirements.txt
     add2virtualenv .
 
-Create ``djangopeople/settings.py`` and add::
-
-    from default_settings import *
-
-    DEBUG = True
-    DATABASES = {
-        # your DB config
-    }
+Check ``env/DATABASE_URL`` to configure a local DB.
 
 Then::
 
@@ -52,8 +50,14 @@ Set a bunch of environment variables:
 * ``DATABASE_URL``
 * ``SECRET_KEY``
 * ``SENTRY_DSN``
-* ``DJANGO_SETTINGS_MODULE`` (set it to ``djangopeople.production_settings``)
+* ``DJANGO_SETTINGS_MODULE`` (set it to ``djangopeople.settings``)
 * ``FROM_EMAIL``
+* ``API_PASSWORD``
+
+Optionally:
+
+* ``CANONICAL_HOSTNAME`` (e.g. people.djangoproject.com)
+* Add the redistogo addon
 
 First deploy::
 

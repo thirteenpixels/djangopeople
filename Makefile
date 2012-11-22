@@ -1,21 +1,24 @@
 proj = djangopeople
-settings = --settings=$(proj).settings
-test_settings = --settings=$(proj).test_settings
+django = envdir env django-admin.py
+testdjango = envdir tests/env django-admin.py
 
 test:
-	django-admin.py test $(test_settings) --failfast --noinput
+	$(testdjango) test --failfast --noinput ${TEST}
+
 run:
-	django-admin.py runserver 0.0.0.0:8888 $(settings)
+	foreman start -f Procfile.dev
+
 db:
-	django-admin.py syncdb $(settings) --noinput && django-admin.py fix_counts $(settings)
+	$(django) syncdb --noinput && $(django) fix_counts
+
 shell:
-	django-admin.py shell $(settings)
+	$(django) shell
 
 makemessages:
-	cd $(proj) && django-admin.py makemessages -a $(settings)
+	cd $(proj) && envdir ../env django-admin.py makemessages -a
 
 compilemessages:
-	cd $(proj) && django-admin.py compilemessages $(settings)
+	cd $(proj) && envdir ../env django-admin.py compilemessages
 
 txpush:
 	tx push -s
