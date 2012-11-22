@@ -1,6 +1,7 @@
 from django.test import TestCase
 
-from ..models import Country, DjangoPerson, Region, CountrySite, PortfolioSite
+from djangopeople.djangopeople.models import (Country, DjangoPerson, Region,
+                                              CountrySite, PortfolioSite)
 
 
 class DjangoPeopleUnitTest(TestCase):

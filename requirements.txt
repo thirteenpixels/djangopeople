@@ -1,6 +1,7 @@
 Django==1.4.1
 boto==2.6.0
 dj-database-url==0.2.1
+django-discover-runner==0.2.2
 django-password-reset==0.2
 django-redis-cache==0.9.5
 django-secure==0.1.2

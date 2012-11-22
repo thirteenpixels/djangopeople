@@ -8,11 +8,11 @@ from django.test import TestCase
 from django.test.client import RequestFactory
 from django.utils import timezone
 
-from ...django_openidauth.models import associate_openid
-from ...django_openidconsumer.util import OpenID
+from djangopeople.django_openidauth.models import associate_openid
+from djangopeople.django_openidconsumer.util import OpenID
 
-from ..models import Country, DjangoPerson
-from ..views import signup, openid_whatnext
+from djangopeople.djangopeople.models import Country, DjangoPerson
+from djangopeople.djangopeople.views import signup, openid_whatnext
 
 
 def prepare_request(request, openid=True):

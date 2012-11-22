@@ -6,8 +6,9 @@ from django.core.urlresolvers import reverse_lazy
 
 OUR_ROOT = os.path.realpath(os.path.dirname(__file__))
 
-TEST_RUNNER = 'djangopeople.runner.DiscoveryRunner'
-TEST_DISCOVERY_ROOT = os.path.join(OUR_ROOT, os.pardir)
+TEST_RUNNER = 'discover_runner.DiscoverRunner'
+TEST_DISCOVER_TOP_LEVEL = os.path.join(OUR_ROOT, os.pardir)
+TEST_DISCOVERY_ROOT = os.path.join(TEST_DISCOVER_TOP_LEVEL, 'tests')
 
 DEBUG = os.environ.get('DEBUG', False)
 TEMPLATE_DEBUG = DEBUG
