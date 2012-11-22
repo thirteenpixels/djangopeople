@@ -40,6 +40,11 @@ LANGUAGES = (
     ('en', gettext('English')),
     ('cs', gettext('Czech')),
     ('ru', gettext('Russian')),
+    ('fr', gettext('French')),
+    ('es', gettext('Spanish')),
+    ('he', gettext('Hebrew')),
+    ('pt', gettext('Portuguese')),
+    ('sk', gettext('Slovak')),
 )
 
 LOCALE_PATHS = (
