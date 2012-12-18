@@ -64,7 +64,7 @@ window.onload = function() {
 			<div class="info">{% blocktrans with num=page_obj.number total=paginator.num_pages %}Page {{ num }} of {{ total }}{% endblocktrans %}</div>
 			<div class="pages">{% for page in paginator.page_range %}
 				{% if page == page_obj.number %}
-					<strong>{{ page }}</strong>
+					<strong>{{ page }}</strong>
 				{% else %}
 					{% if country.country %}
 						<a href="{% url "country_region" country.country.iso_code|lower country.code|lower %}?page={{ page }}">{{ page }}</a>
@@ -78,9 +78,9 @@ window.onload = function() {
 		<ul class="detailsList split">
 			{% if is_paginated %}
 				{% load person_list_items %}{% person_list_items page_obj.object_list %}
-			{% else %}
+			{% else %}
 				{% load person_list_items %}{% person_list_items people_list %}
-			{% endif %}
+			{% endif %}
 		</ul>
 		{% if regions %}
 			<h2>{% trans "Regions" %}</h2>

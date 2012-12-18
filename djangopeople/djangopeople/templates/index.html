@@ -43,7 +43,7 @@ window.onload = function() {
 	<ul class="detailsList split">
 		{% for country in countries %}
 			<li>
-				<a href="{% url "country_detail" country.iso_code|lower %}" class="nobg"><img src="{% static "djangopeople/img/blank.png" %}" class="flag iso-{{ country.iso_code|lower }}" alt="{{ country }}"></a> <a href="{% url "country_detail" country.iso_code|lower %}"><strong>{{ country }}</strong></a> {% blocktrans count counter=country.num_people %}{{ counter }} person{% plural %}{{ counter }} people{% endblocktrans %}
+				<a href="{% url "country_detail" country.iso_code|lower %}" class="nobg"><img src="{% static "djangopeople/img/blank.png" %}" class="flag iso-{{ country.iso_code|lower }}" alt="{{ country }}"></a> <a href="{% url "country_detail" country.iso_code|lower %}"><strong>{{ country }}</strong></a> {% blocktrans count counter=country.num_people %}{{ counter }} person{% plural %}{{ counter }} people{% endblocktrans %}
 			</li>
 		{% endfor %}
 	</ul>
