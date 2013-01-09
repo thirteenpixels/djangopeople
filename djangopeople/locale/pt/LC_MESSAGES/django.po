@@ -1,26 +1,55 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Bruno Miguel Custódio <bruno@brunomcustodio.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: Django People\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-10 08:03+0000\n"
+"POT-Creation-Date: 2012-12-18 12:54+0000\n"
 "PO-Revision-Date: 2012-10-19 16:36+0000\n"
 "Last-Translator: Bruno Miguel Custódio <bruno@brunomcustodio.com>\n"
-"Language-Team: Portuguese (http://www.transifex.com/projects/p/django/language/pt/)\n"
+"Language-Team: Portuguese (http://www.transifex.com/projects/p/django/"
+"language/pt/)\n"
+"Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: pt\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: default_settings.py:40
+#: settings.py:44
 msgid "English"
 msgstr "Inglês"
+
+#: settings.py:45
+msgid "Czech"
+msgstr ""
+
+#: settings.py:46
+msgid "Russian"
+msgstr ""
+
+#: settings.py:47
+msgid "French"
+msgstr ""
+
+#: settings.py:48
+msgid "Spanish"
+msgstr ""
+
+#: settings.py:49
+msgid "Hebrew"
+msgstr ""
+
+#: settings.py:50
+msgid "Portuguese"
+msgstr ""
+
+#: settings.py:51
+msgid "Slovak"
+msgstr ""
 
 #: django_openidauth/models.py:8 djangopeople/models.py:123
 msgid "User"
@@ -47,11 +76,14 @@ msgstr "%s foi associado à sua conta"
 msgid ""
 "%s could not be associated with your account, as it is already associated "
 "with a different account"
-msgstr "%s não pode ser associado à sua conta por já estar associado a uma conta diferente"
+msgstr ""
+"%s não pode ser associado à sua conta por já estar associado a uma conta "
+"diferente"
 
 #: django_openidauth/views.py:105
 msgid "You need to set a password if you want to remove all of your OpenIDs"
-msgstr "Necessita definir uma palavra-chave por forma a remover todos os seus OpenIDs"
+msgstr ""
+"Necessita definir uma palavra-chave por forma a remover todos os seus OpenIDs"
 
 #: django_openidauth/views.py:111
 #, python-format
@@ -65,8 +97,7 @@ msgstr "Associações OpenID"
 
 #: django_openidauth/templates/openid_associations.html:32
 msgid "Your account is currently associated with the following OpenID:"
-msgid_plural ""
-"Your account is currently associated with the following OpenIDs:"
+msgid_plural "Your account is currently associated with the following OpenIDs:"
 msgstr[0] "A sua conta está presentemente associada ao seguinte OpenID:"
 msgstr[1] "A sua conta está presentemente associada aos seguintes OpenIDs:"
 
@@ -81,8 +112,13 @@ msgid ""
 msgid_plural ""
 "You are currently logged with the following OpenIDs. Click \"associate\" to "
 "allow an OpenID to be used to sign in to your account."
-msgstr[0] "Está presentemente autenticado com o seguinte OpenID. Clique em \"associar\" para permitir que o mesmo seja utilizado para se autenticar com a sua conta."
-msgstr[1] "Está presentemente autenticado com os seguintes OpenIDs. Clique em \"associar\" para permitir que um deles seja utilizado para se autenticar com a sua conta."
+msgstr[0] ""
+"Está presentemente autenticado com o seguinte OpenID. Clique em \"associar\" "
+"para permitir que o mesmo seja utilizado para se autenticar com a sua conta."
+msgstr[1] ""
+"Está presentemente autenticado com os seguintes OpenIDs. Clique em \"associar"
+"\" para permitir que um deles seja utilizado para se autenticar com a sua "
+"conta."
 
 #: django_openidauth/templates/openid_associations.html:44
 msgid "Associate"
@@ -90,7 +126,8 @@ msgstr "Associar"
 
 #: django_openidauth/templates/openid_associations.html:50
 msgid "To associate a new OpenID with this account, sign in with it here:"
-msgstr "Para associar um novo OpenID com a sua conta autentique-se com o mesmo aqui:"
+msgstr ""
+"Para associar um novo OpenID com a sua conta autentique-se com o mesmo aqui:"
 
 #: django_openidauth/templates/openid_associations.html:55
 msgid "Authenticate and associate with this account"
@@ -137,7 +174,8 @@ msgstr "IRC #django"
 
 #: djangopeople/forms.py:49
 msgid "Drag and zoom the map until the crosshair matches your location"
-msgstr "Arraste e amplie o mapa até fazer o apontador corresponder à sua localização"
+msgstr ""
+"Arraste e amplie o mapa até fazer o apontador corresponder à sua localização"
 
 #: djangopeople/forms.py:112 djangopeople/templates/base.html:41
 msgid "Username"
@@ -175,7 +213,7 @@ msgstr "URL do Blog"
 
 #: djangopeople/forms.py:127 djangopeople/forms.py:267
 #: djangopeople/models.py:74 djangopeople/models.py:88
-#: djangopeople/models.py:127 djangopeople/models.py:252
+#: djangopeople/models.py:127 djangopeople/models.py:260
 #: djangopeople/templates/edit_location.html:44
 msgid "Country"
 msgstr "País"
@@ -196,24 +234,74 @@ msgstr "Região"
 msgid "Search visibility"
 msgstr "Visibilidade nas pesquisas"
 
-#: djangopeople/forms.py:143 djangopeople/forms.py:363
-#: djangopeople/templates/edit_finding.html:76
-msgid "E-mail privacy"
+#: djangopeople/forms.py:138
+msgid "Allow search engines to index my profile page (recommended)"
+msgstr ""
+
+#: djangopeople/forms.py:139
+msgid "Don't allow search engines to index my profile page"
+msgstr ""
+
+#: djangopeople/forms.py:143
+#, fuzzy
+msgid "Email privacy"
 msgstr "Privacidade (e-mail)"
+
+#: djangopeople/forms.py:145
+msgid "Anyone can see my email address"
+msgstr ""
+
+#: djangopeople/forms.py:146
+msgid "Only logged-in users can see my email address"
+msgstr ""
+
+#: djangopeople/forms.py:147
+msgid "Noone can ever see my email address"
+msgstr ""
 
 #: djangopeople/forms.py:151 djangopeople/forms.py:371
 #: djangopeople/templates/edit_finding.html:81
 msgid "IM privacy"
 msgstr "Privacidade (IM)"
 
+#: djangopeople/forms.py:153
+msgid "Anyone can see my IM details"
+msgstr ""
+
+#: djangopeople/forms.py:154
+msgid "Only logged-in users can see my IM details"
+msgstr ""
+
 #: djangopeople/forms.py:158 djangopeople/forms.py:378
 #: djangopeople/templates/edit_finding.html:86
 msgid "IRC tracking"
 msgstr "Registo de IRC"
 
+#: djangopeople/forms.py:160
+msgid "Keep track of the last time I was seen on IRC (requires your IRC nick)"
+msgstr ""
+
+#: djangopeople/forms.py:162
+msgid "Don't record the last time I was seen on IRC"
+msgstr ""
+
 #: djangopeople/forms.py:166 djangopeople/forms.py:386
 #: djangopeople/templates/edit_finding.html:39
 msgid "Looking for work?"
+msgstr "À procura de trabalho?"
+
+#: djangopeople/forms.py:168
+msgid "Not looking for work at the moment"
+msgstr ""
+
+#: djangopeople/forms.py:169
+#, fuzzy
+msgid "Looking for freelance work"
+msgstr "À procura de trabalho?"
+
+#: djangopeople/forms.py:170
+#, fuzzy
+msgid "Looking for full-time work"
 msgstr "À procura de trabalho?"
 
 #: djangopeople/forms.py:174
@@ -247,6 +335,10 @@ msgstr "Alterar aptidões"
 #: djangopeople/forms.py:286
 msgid "The ISO code of the country you selected is invalid."
 msgstr "O código ISO do país que selecionou é inválido"
+
+#: djangopeople/forms.py:363 djangopeople/templates/edit_finding.html:76
+msgid "E-mail privacy"
+msgstr "Privacidade (e-mail)"
 
 #: djangopeople/forms.py:439
 #, python-format
@@ -287,9 +379,10 @@ msgid "Your password was invalid"
 msgstr "A sua palavra-chave não é válida"
 
 #: djangopeople/groupedselect.py:81
-msgid ""
-"Select a valid choice. That choice is not one of the available choices."
-msgstr "Escolha uma opção válida. A escolha efectuada não corresponde a nenhuma das opções disponíveis."
+msgid "Select a valid choice. That choice is not one of the available choices."
+msgstr ""
+"Escolha uma opção válida. A escolha efectuada não corresponde a nenhuma das "
+"opções disponíveis."
 
 #: djangopeople/models.py:40 djangopeople/models.py:87
 msgid "Name"
@@ -383,43 +476,43 @@ msgstr "Delegado OpenID"
 msgid "Last active on IRC"
 msgstr "Activo pela última vez no IRC"
 
-#: djangopeople/models.py:159
+#: djangopeople/models.py:167
 msgid "<none>"
 msgstr "<nenhum>"
 
-#: djangopeople/models.py:220
+#: djangopeople/models.py:228
 msgid "Django person"
 msgstr "Pessoa Django"
 
-#: djangopeople/models.py:221
+#: djangopeople/models.py:229
 msgid "Django people"
 msgstr "Pessoas Django"
 
-#: djangopeople/models.py:235 djangopeople/models.py:250
+#: djangopeople/models.py:243 djangopeople/models.py:258
 msgid "Title"
 msgstr "Título"
 
-#: djangopeople/models.py:236 djangopeople/models.py:251
+#: djangopeople/models.py:244 djangopeople/models.py:259
 msgid "URL"
 msgstr "URL"
 
-#: djangopeople/models.py:238
+#: djangopeople/models.py:246
 msgid "Contributor"
 msgstr "Colaborador"
 
-#: djangopeople/models.py:244
+#: djangopeople/models.py:252
 msgid "Portfolio site"
 msgstr "Site do portfolio"
 
-#: djangopeople/models.py:245
+#: djangopeople/models.py:253
 msgid "Portfolio sites"
 msgstr "Sites de portfolio"
 
-#: djangopeople/models.py:258
+#: djangopeople/models.py:266
 msgid "Country site"
 msgstr "Site do país"
 
-#: djangopeople/models.py:259
+#: djangopeople/models.py:267
 msgid "Country sites"
 msgstr "Sites do país"
 
@@ -456,21 +549,32 @@ msgstr "Sobre as Pessoas Django"
 #: djangopeople/templates/about.html:14
 #, python-format
 msgid ""
-"Django People lists %(count)s <a "
-"href=\"https://www.djangoproject.com/\">Django</a> developers from around "
-"the world, in %(countries)s different countries. The aim of the site is to "
-"help Django developers find like-minded souls near them, and hopefully kick-"
-"start some local meet-ups and user groups."
-msgstr "Django People conta com %(count)s engenheiros <a href=\"https://www.djangoproject.com/\">Django</a> de todo o mundo, de um total de %(countries)s países diferentes. O objectivo do site é ajudá-los a encontrar colegas próximos de cada um deles e fomentar a realização de encontros entre as comunidades locais."
+"Django People lists %(count)s <a href=\"https://www.djangoproject.com/"
+"\">Django</a> developers from around the world, in %(countries)s different "
+"countries. The aim of the site is to help Django developers find like-minded "
+"souls near them, and hopefully kick-start some local meet-ups and user "
+"groups."
+msgstr ""
+"Django People conta com %(count)s engenheiros <a href=\"https://www."
+"djangoproject.com/\">Django</a> de todo o mundo, de um total de "
+"%(countries)s países diferentes. O objectivo do site é ajudá-los a encontrar "
+"colegas próximos de cada um deles e fomentar a realização de encontros entre "
+"as comunidades locais."
 
 #: djangopeople/templates/about.html:16
 msgid ""
 "The site was originally built and open-sourced by <a href=\"/simon/\">Simon "
-"Willison</a> and <a href=\"/natbat/\">Natalie Downe</a>. The code is <a "
-"href=\"https://github.com/brutasse/djangopeople\">available on github</a>, "
-"you can post feedback and bug reports on the repository's <a "
-"href=\"https://github.com/brutasse/djangopeople/issues\">issues page</a>."
-msgstr "O site foi desenvolvido originalmente e lançado como <i>open-source</i> por <a href=\"/simon/\">Simon Willison</a> e <a href=\"/natbat/\">Natalie Downe</a>. O código está <a href=\"https://github.com/brutasse/djangopeople\">disponível no GitHub</a>. Sinta-se à vontade para nos enviar <i>feedback</i> e reportar erros na <a href=\"https://github.com/brutasse/djangopeople/issues\">página de erros</a> do repositório."
+"Willison</a> and <a href=\"/natbat/\">Natalie Downe</a>. The code is <a href="
+"\"https://github.com/brutasse/djangopeople\">available on github</a>, you "
+"can post feedback and bug reports on the repository's <a href=\"https://"
+"github.com/brutasse/djangopeople/issues\">issues page</a>."
+msgstr ""
+"O site foi desenvolvido originalmente e lançado como <i>open-source</i> por "
+"<a href=\"/simon/\">Simon Willison</a> e <a href=\"/natbat/\">Natalie Downe</"
+"a>. O código está <a href=\"https://github.com/brutasse/djangopeople"
+"\">disponível no GitHub</a>. Sinta-se à vontade para nos enviar <i>feedback</"
+"i> e reportar erros na <a href=\"https://github.com/brutasse/djangopeople/"
+"issues\">página de erros</a> do repositório."
 
 #: djangopeople/templates/about.html:18
 msgid "Colophon"
@@ -478,34 +582,50 @@ msgstr "Cólofon"
 
 #: djangopeople/templates/about.html:20
 msgid ""
-"Country data and location lookups come from <a "
-"href=\"http://www.geonames.org/\">GeoNames</a>, while the maps themselves "
-"are powered by the <a href=\"https://developers.google.com/maps/\">Google "
-"Maps API</a>. Country flags and icons are by <a "
-"href=\"http://famfamfam.com/lab/icons/\">Mark James</a>; US state flags come"
-" <a href=\"http://en.wikipedia.org/wiki/Flags_of_the_U.S._states\" "
-"title=\"Flags of the U.S. states\">from Wikipedia</a>. Profile pictures come"
-" from <a href=\"http://en.gravatar.com/\">Gravatar</a>."
-msgstr "Os dados dos países e das localizações provêem do <a href=\"http://www.geonames.org/\">GeoNames</a>, enquanto que os mapas são fornecidos pela <a href=\"https://developers.google.com/maps/\">Google Maps API</a>. As bandeiras e os ícones dos países foram desenhados por <a href=\"http://famfamfam.com/lab/icons/\">Mark James</a>; As bandeiras dos diversos estados dos EUA provêem <a href=\"http://en.wikipedia.org/wiki/Flags_of_the_U.S._states\" title=\"Flags of the U.S. states\">da Wikipedia</a>. As imagens de perfil provêem do <a href=\"http://en.gravatar.com/\">Gravatar</a>."
+"Country data and location lookups come from <a href=\"http://www.geonames."
+"org/\">GeoNames</a>, while the maps themselves are powered by the <a href="
+"\"https://developers.google.com/maps/\">Google Maps API</a>. Country flags "
+"and icons are by <a href=\"http://famfamfam.com/lab/icons/\">Mark James</a>; "
+"US state flags come <a href=\"http://en.wikipedia.org/wiki/Flags_of_the_U.S."
+"_states\" title=\"Flags of the U.S. states\">from Wikipedia</a>. Profile "
+"pictures come from <a href=\"http://en.gravatar.com/\">Gravatar</a>."
+msgstr ""
+"Os dados dos países e das localizações provêem do <a href=\"http://www."
+"geonames.org/\">GeoNames</a>, enquanto que os mapas são fornecidos pela <a "
+"href=\"https://developers.google.com/maps/\">Google Maps API</a>. As "
+"bandeiras e os ícones dos países foram desenhados por <a href=\"http://"
+"famfamfam.com/lab/icons/\">Mark James</a>; As bandeiras dos diversos estados "
+"dos EUA provêem <a href=\"http://en.wikipedia.org/wiki/Flags_of_the_U.S."
+"_states\" title=\"Flags of the U.S. states\">da Wikipedia</a>. As imagens de "
+"perfil provêem do <a href=\"http://en.gravatar.com/\">Gravatar</a>."
 
 #: djangopeople/templates/about.html:22
 #, python-format
 msgid ""
 "The site uses <a href=\"http://code.google.com/p/django-tagging/\">django-"
-"tagging</a> by <a href=\"/insin/\">Jonathan Buchanan</a> for the <a "
-"href=\"/skills/\">skills feature</a>. <a "
-"href=\"http://simonwillison.net/2008/Jan/24/upgrade/\" title=\"Django "
-"People: OpenID and microformats\">OpenID support</a> (used by "
-"%(openid_users)s people) depends on <a href=\"http://openidenabled.com"
-"/python-openid/\">python-openid</a> (version 2.2.5)  and <a "
+"tagging</a> by <a href=\"/insin/\">Jonathan Buchanan</a> for the <a href=\"/"
+"skills/\">skills feature</a>. <a href=\"http://simonwillison.net/2008/Jan/24/"
+"upgrade/\" title=\"Django People: OpenID and microformats\">OpenID support</"
+"a> (used by %(openid_users)s people) depends on <a href=\"http://"
+"openidenabled.com/python-openid/\">python-openid</a> (version 2.2.5)  and <a "
 "href=\"http://code.google.com/p/django-openid/\">django-openid</a>."
-msgstr "O site utiliza <a href=\"http://code.google.com/p/django-tagging/\">django-tagging</a> (por <a href=\"/insin/\">Jonathan Buchanan</a>) para disponibilizar a funcionalidade de <a href=\"/skills/\">aptidões</a>. O <a href=\"http://simonwillison.net/2008/Jan/24/upgrade/\" title=\"Django People: OpenID and microformats\">suporte para OpenID</a> (utilizado por %(openid_users)s pessoas) assenta em <a href=\"http://openidenabled.com/python-openid/\">python-openid</a> (versão 2.2.5) e and <a href=\"http://code.google.com/p/django-openid/\">django-openid</a>."
+msgstr ""
+"O site utiliza <a href=\"http://code.google.com/p/django-tagging/\">django-"
+"tagging</a> (por <a href=\"/insin/\">Jonathan Buchanan</a>) para "
+"disponibilizar a funcionalidade de <a href=\"/skills/\">aptidões</a>. O <a "
+"href=\"http://simonwillison.net/2008/Jan/24/upgrade/\" title=\"Django "
+"People: OpenID and microformats\">suporte para OpenID</a> (utilizado por "
+"%(openid_users)s pessoas) assenta em <a href=\"http://openidenabled.com/"
+"python-openid/\">python-openid</a> (versão 2.2.5) e and <a href=\"http://"
+"code.google.com/p/django-openid/\">django-openid</a>."
 
 #: djangopeople/templates/about.html:24
 msgid ""
 "Deployment is <a href=\"http://gunicorn.org\">gunicorn</a>, hosted on <a "
 "href=\"http://www.heroku.com/\">Heroku</a>."
-msgstr "A correr em <a href=\"http://gunicorn.org\">gunicorn</a>, alojado em <a href=\"http://www.heroku.com/\">Heroku</a>."
+msgstr ""
+"A correr em <a href=\"http://gunicorn.org\">gunicorn</a>, alojado em <a href="
+"\"http://www.heroku.com/\">Heroku</a>."
 
 #: djangopeople/templates/about.html:26
 msgid "A Django joint."
@@ -552,7 +672,8 @@ msgstr "Autenticar"
 #: djangopeople/templates/base.html:43
 #, python-format
 msgid "Or <a href=\"%(openid_url)s\">log in with <strong>OpenID</strong>"
-msgstr "Ou  <a href=\"%(openid_url)s\">autenticar-se<strong> com OpenID</strong>"
+msgstr ""
+"Ou  <a href=\"%(openid_url)s\">autenticar-se<strong> com OpenID</strong>"
 
 #: djangopeople/templates/base.html:49
 msgid "Django People"
@@ -562,7 +683,9 @@ msgstr "Pessoas Django"
 msgid ""
 "Discover users of the <a href=\"https://www.djangoproject.com/\">Django Web "
 "framework</a> near you"
-msgstr "Descubra utilizadores da <a href=\"https://www.djangoproject.com/\"><i>framework</i> <i>web</i> Django</a> perto de si"
+msgstr ""
+"Descubra utilizadores da <a href=\"https://www.djangoproject.com/"
+"\"><i>framework</i> <i>web</i> Django</a> perto de si"
 
 #: djangopeople/templates/base.html:61
 msgid "Hosted on <span class=\"heroku\">Heroku</span>"
@@ -613,15 +736,22 @@ msgstr "Sites em %(country)s"
 
 #: djangopeople/templates/country_sites.html:19
 #, python-format
-msgid "<a href=\"%(url)s\">%(title)s</a> by <a href=\"%(author_url)s\">%(author)s</a>"
-msgstr "<a href=\"%(url)s\">%(title)s</a> por <a href=\"%(author_url)s\">%(author)s</a>"
+msgid ""
+"<a href=\"%(url)s\">%(title)s</a> by <a href=\"%(author_url)s\">%(author)s</"
+"a>"
+msgstr ""
+"<a href=\"%(url)s\">%(title)s</a> por <a href=\"%(author_url)s\">%(author)s</"
+"a>"
 
 #: djangopeople/templates/delete_account.html:4
 msgid ""
 "Please enter your password to confirm your ownership of this account. You "
 "account removal will be effective immediately and permanently after you "
 "submit this form."
-msgstr "Por favor introduza a sua palavra-chave por forma a confirmar que esta conta lhe pertence. A sua remoção será efectuada imediata e permanentemente após a submissão deste formulário."
+msgstr ""
+"Por favor introduza a sua palavra-chave por forma a confirmar que esta conta "
+"lhe pertence. A sua remoção será efectuada imediata e permanentemente após a "
+"submissão deste formulário."
 
 #: djangopeople/templates/delete_account.html:7
 msgid "Delete my account"
@@ -637,11 +767,14 @@ msgstr "Caro(a) %(name)s,"
 msgid ""
 "It seems you're willing to delete your account from %(domain)s. You can "
 "delete your account by following the instructions on the link below:"
-msgstr "Parece que pretende apagar a sua conta em %(domain)s. Pode fazê-lo seguindo as instruções na ligação abaixo:"
+msgstr ""
+"Parece que pretende apagar a sua conta em %(domain)s. Pode fazê-lo seguindo "
+"as instruções na ligação abaixo:"
 
 #: djangopeople/templates/delete_account.txt:7
 msgid "For security reasons, this link will stay valid for only 5 minutes."
-msgstr "Por motivos de segurança esta ligação será válida por apenas 5 minutos."
+msgstr ""
+"Por motivos de segurança esta ligação será válida por apenas 5 minutos."
 
 #: djangopeople/templates/delete_account_done.html:3
 msgid "Account deleted"
@@ -649,13 +782,17 @@ msgstr "Conta removida"
 
 #: djangopeople/templates/delete_account_done.html:6
 msgid "It's sad to see you go, but your account was successfully deleted."
-msgstr "Ficamos tristes por vê-lo ir embora. Em todo o caso, a sua conta foi apagada com êxito."
+msgstr ""
+"Ficamos tristes por vê-lo ir embora. Em todo o caso, a sua conta foi apagada "
+"com êxito."
 
 #: djangopeople/templates/delete_account_next.html:4
 msgid ""
 "Check your email! An email was just sent to you, follow the link in it to "
 "finalize your account deletion."
-msgstr "Foi-lhe enviado um email contendo uma ligação que lhe permitirá confirmar a remoção da sua conta."
+msgstr ""
+"Foi-lhe enviado um email contendo uma ligação que lhe permitirá confirmar a "
+"remoção da sua conta."
 
 #: djangopeople/templates/delete_account_request.html:3
 #: djangopeople/templates/delete_account_request.html:5
@@ -664,21 +801,28 @@ msgstr "Remoção de conta"
 
 #: djangopeople/templates/delete_account_request.html:8
 msgid ""
-"You are about to request complete removal of your account and data from this"
-" site. This will be done using the following process:"
-msgstr "Esta prestes a requerer a completa remoção da sua conta e de todos os seus dados com ela associados. Esta acção seguirá o seguinte processo:"
+"You are about to request complete removal of your account and data from this "
+"site. This will be done using the following process:"
+msgstr ""
+"Esta prestes a requerer a completa remoção da sua conta e de todos os seus "
+"dados com ela associados. Esta acção seguirá o seguinte processo:"
 
 #: djangopeople/templates/delete_account_request.html:10
 msgid ""
-"When you submit the following form, you will receive an email with a private"
-" link."
-msgstr "Quando submeter o formulário abaixo irá receber um email com uma ligação privada."
+"When you submit the following form, you will receive an email with a private "
+"link."
+msgstr ""
+"Quando submeter o formulário abaixo irá receber um email com uma ligação "
+"privada."
 
 #: djangopeople/templates/delete_account_request.html:11
 msgid ""
 "This link (valid for 5 minutes only) will take you to a page where you can "
 "enter your password to actually delete your account."
-msgstr "Esta ligação (válida durante apenas 5 minutos) levá-lo-à até uma página onde poderá introduzir a sua palavra-chave por forma a efectivar a remoção da sua conta."
+msgstr ""
+"Esta ligação (válida durante apenas 5 minutos) levá-lo-à até uma página onde "
+"poderá introduzir a sua palavra-chave por forma a efectivar a remoção da sua "
+"conta."
 
 #: djangopeople/templates/delete_account_request.html:13
 msgid "If you are ready to proceed, submit the form below."
@@ -725,9 +869,11 @@ msgstr "Mudar a sua palavra-chave"
 #: djangopeople/templates/edit_account.html:20
 #, python-format
 msgid ""
-"You do not have a password set - <a href=\"%(password_url)s\">set one "
-"now?</a>"
-msgstr "Não tem uma palavra-chave definida - <a href=\"%(password_url)s\">definir uma agora?</a>"
+"You do not have a password set - <a href=\"%(password_url)s\">set one now?</"
+"a>"
+msgstr ""
+"Não tem uma palavra-chave definida - <a href=\"%(password_url)s\">definir "
+"uma agora?</a>"
 
 #: djangopeople/templates/edit_account.html:21
 msgid "Delete your account"
@@ -736,21 +882,28 @@ msgstr "Apagar a sua conta"
 #: djangopeople/templates/edit_account.html:27
 #, python-format
 msgid ""
-"You have %(counter)s OpenID associated with your account. <a "
-"href=\"%(openid_url)s\">Manage your OpenID</a>"
+"You have %(counter)s OpenID associated with your account. <a href="
+"\"%(openid_url)s\">Manage your OpenID</a>"
 msgid_plural ""
-"You have %(counter)s OpenIDs associated with your account. <a "
-"href=\"%(openid_url)s\">Manage your OpenIDs</a>"
-msgstr[0] "Tem %(counter)s OpenID associado à sua conta. <a href=\"%(openid_url)s\">Gerir o seu OpenID</a>"
-msgstr[1] "Tem %(counter)s OpenIDs associados à sua conta. <a href=\"%(openid_url)s\">Gerir os seus OpenIDs</a>"
+"You have %(counter)s OpenIDs associated with your account. <a href="
+"\"%(openid_url)s\">Manage your OpenIDs</a>"
+msgstr[0] ""
+"Tem %(counter)s OpenID associado à sua conta. <a href=\"%(openid_url)s"
+"\">Gerir o seu OpenID</a>"
+msgstr[1] ""
+"Tem %(counter)s OpenIDs associados à sua conta. <a href=\"%(openid_url)s"
+"\">Gerir os seus OpenIDs</a>"
 
 #: djangopeople/templates/edit_account.html:30
 #, python-format
 msgid ""
-"If you have an <a href=\"http://openid.net/\">OpenID</a>, you can <a "
-"href=\"%(openid_url)s\">associate it with your account</a>. This will allow "
-"you to log in using your OpenID instead of your password."
-msgstr "Se tem um <a href=\"http://openid.net/\">OpenID</a> pode <a href=\"%(openid_url)s\">associá-lo à sua conta</a>. Isto vai permitir-lhe autenticar-se sem introduzir a palavra-chave."
+"If you have an <a href=\"http://openid.net/\">OpenID</a>, you can <a href="
+"\"%(openid_url)s\">associate it with your account</a>. This will allow you "
+"to log in using your OpenID instead of your password."
+msgstr ""
+"Se tem um <a href=\"http://openid.net/\">OpenID</a> pode <a href="
+"\"%(openid_url)s\">associá-lo à sua conta</a>. Isto vai permitir-lhe "
+"autenticar-se sem introduzir a palavra-chave."
 
 #: djangopeople/templates/edit_account.html:34
 msgid "Advanced: Use your profile page as an OpenID"
@@ -761,13 +914,19 @@ msgid ""
 "If you already have an OpenID, you can configure your Django People profile "
 "page to delegate to it. This means you'll be able to use your profile page "
 "as an OpenID, without having to sign in to Django People first."
-msgstr "Se já tem um OpenID pode configurar o seu perfil do Django People como delegado de autenticação. Por outras palavras, passará a poder utilizar o seu perfil como um OpenID sem ter que se autenticar primeiro no Django People."
+msgstr ""
+"Se já tem um OpenID pode configurar o seu perfil do Django People como "
+"delegado de autenticação. Por outras palavras, passará a poder utilizar o "
+"seu perfil como um OpenID sem ter que se autenticar primeiro no Django "
+"People."
 
 #: djangopeople/templates/edit_account.html:40
 msgid ""
 "Read <a href=\"http://simonwillison.net/2006/Dec/19/openid/\">more about "
 "delegation</a> to learn how to use this form."
-msgstr "Leia <a href=\"http://simonwillison.net/2006/Dec/19/openid/\">mais acerca de delegação</a> para aprender a utilizar este formulário."
+msgstr ""
+"Leia <a href=\"http://simonwillison.net/2006/Dec/19/openid/\">mais acerca de "
+"delegação</a> para aprender a utilizar este formulário."
 
 #: djangopeople/templates/edit_account.html:45
 msgid "Update OpenID delegation"
@@ -782,7 +941,9 @@ msgstr "Editar a sua biografia"
 msgid ""
 "No HTML allowed, but paragraph tags will be added automatically and URLs "
 "will be turned in to links."
-msgstr "Não é permitido utilizar HTML, mas serão adicionadas automaticametne marcas de parágrafo, e os URLs serão transformados em ligações."
+msgstr ""
+"Não é permitido utilizar HTML, mas serão adicionadas automaticametne marcas "
+"de parágrafo, e os URLs serão transformados em ligações."
 
 #: djangopeople/templates/edit_bio.html:18
 msgid "Update bio"
@@ -828,7 +989,9 @@ msgstr "Definições de privacidade"
 msgid ""
 "You can set your profile page not to show up in external search engine "
 "results (such as Google or Yahoo!)"
-msgstr "Pode impedir que o seu perfil seja mostrado em resultados de motores de pesquisa (como o Google ou o Yahoo!)"
+msgstr ""
+"Pode impedir que o seu perfil seja mostrado em resultados de motores de "
+"pesquisa (como o Google ou o Yahoo!)"
 
 #: djangopeople/templates/edit_finding.html:91
 msgid "Save changes"
@@ -837,10 +1000,13 @@ msgstr "Guardar alterações"
 #: djangopeople/templates/edit_location.html:25
 #: djangopeople/templates/signup.html:57
 msgid ""
-"<strong>Zoom and center the map on your location</strong>. Your map location"
-" will be shared in public, so only make it as accurate as makes you "
+"<strong>Zoom and center the map on your location</strong>. Your map location "
+"will be shared in public, so only make it as accurate as makes you "
 "comfortable."
-msgstr "<strong>Amplie e centre o mapa na sua localização</strong>. Esta será partilhada publicamente, pelo que deverá seleccioná-la de forma tão ou tão pouco precisa quanto desejar."
+msgstr ""
+"<strong>Amplie e centre o mapa na sua localização</strong>. Esta será "
+"partilhada publicamente, pelo que deverá seleccioná-la de forma tão ou tão "
+"pouco precisa quanto desejar."
 
 #: djangopeople/templates/edit_location.html:38
 msgid "Location *"
@@ -852,7 +1018,10 @@ msgid ""
 "A short textual description of your location will be displayed on the site. "
 "We attempt to derive this from your position on the map, but you can "
 "customise it if you like."
-msgstr "Um pequeno excerto informativo acerca da sua localização será mostrado no site. Embora tentemos ao máximo adequá-lo à posição que definiu no mapa, pode personalizá-lo se assim o desejar."
+msgstr ""
+"Um pequeno excerto informativo acerca da sua localização será mostrado no "
+"site. Embora tentemos ao máximo adequá-lo à posição que definiu no mapa, "
+"pode personalizá-lo se assim o desejar."
 
 #: djangopeople/templates/edit_location.html:63
 msgid "Change location"
@@ -871,7 +1040,9 @@ msgstr "Actualizar o seu portfolio"
 msgid ""
 "Show off the sites and projects you've personally built (or contributed to) "
 "using Django."
-msgstr "Exiba os sites e projetos que desenvolveu (ou nos quais colaborou) utilizando Django."
+msgstr ""
+"Exiba os sites e projetos que desenvolveu (ou nos quais colaborou) "
+"utilizando Django."
 
 #: djangopeople/templates/edit_portfolio.html:24
 msgid "Update portfolio"
@@ -893,20 +1064,25 @@ msgstr "Por favor corrija os erros abaixo e tente novamente."
 #: djangopeople/templates/index.html:33
 #, python-format
 msgid "Showing %(counter)s recent signups (out of %(total_people)s)"
-msgstr "A mostrar %(counter)s registos recentes (de um total de %(total_people)s)"
+msgstr ""
+"A mostrar %(counter)s registos recentes (de um total de %(total_people)s)"
 
 #: djangopeople/templates/index.html:33
 #, python-format
 msgid ""
 "if you're a Django developer, why not <a href=\"%(signup_url)s\">add "
 "yourself</a> to the site?"
-msgstr "Se desenvolve regularmente em Django, porque não <a href=\"%(signup_url)s\">registar-se</a> no site?"
+msgstr ""
+"Se desenvolve regularmente em Django, porque não <a href=\"%(signup_url)s"
+"\">registar-se</a> no site?"
 
 #: djangopeople/templates/index.html:50
 msgid ""
-"Looking for a Django job? check out <a "
-"href=\"http://djangogigs.com/\">Djangogigs.com</a>"
-msgstr "À procura de trabalho em Django? Dê uma espreitadela no <a href=\"http://djangogigs.com/\">Djangogigs.com</a>"
+"Looking for a Django job? check out <a href=\"http://djangogigs.com/"
+"\">Djangogigs.com</a>"
+msgstr ""
+"À procura de trabalho em Django? Dê uma espreitadela no <a href=\"http://"
+"djangogigs.com/\">Djangogigs.com</a>"
 
 #: djangopeople/templates/irc_active.html:4
 #: djangopeople/templates/irc_active.html:7
@@ -1003,7 +1179,8 @@ msgstr "Projectos Django para os quais %(name)s contribuiu"
 #: djangopeople/templates/profile.html:116
 #, python-format
 msgid "<a href=\"%(portfolio_url)s\">Add some sites</a> to your portfolio"
-msgstr "<a href=\"%(portfolio_url)s\">Adicione alguns sites</a> ao seu portfolio"
+msgstr ""
+"<a href=\"%(portfolio_url)s\">Adicione alguns sites</a> ao seu portfolio"
 
 #: djangopeople/templates/profile.html:123
 #, python-format
@@ -1061,17 +1238,22 @@ msgstr "Registar-se como uma Pessoa Django"
 #: djangopeople/templates/signup.html:21
 #, python-format
 msgid ""
-"Got an <strong class=\"openid\">OpenID</strong>? <a "
-"href=\"%(openid_url)s\">Sign up with your OpenID now!</a>"
-msgstr "Tem um <strong class=\"openid\">OpenID</strong>? <a href=\"%(openid_url)s\">Autentique-se já com o seu OpenID!</a>"
+"Got an <strong class=\"openid\">OpenID</strong>? <a href=\"%(openid_url)s"
+"\">Sign up with your OpenID now!</a>"
+msgstr ""
+"Tem um <strong class=\"openid\">OpenID</strong>? <a href=\"%(openid_url)s"
+"\">Autentique-se já com o seu OpenID!</a>"
 
 #: djangopeople/templates/signup.html:23
 #, python-format
 msgid ""
-"Your new account will be associated with with your OpenID: <strong "
-"class=\"openid\">%(openid)s</strong> (<a "
-"href=\"%(openid_signout)s?next=%(signup_url)s\">don't associate</a>)"
-msgstr "A sua nova conta vai ser associada com o seu OpenID: <strong class=\"openid\">%(openid)s</strong> (<a href=\"%(openid_signout)s?next=%(signup_url)s\">não associar</a>)"
+"Your new account will be associated with with your OpenID: <strong class="
+"\"openid\">%(openid)s</strong> (<a href=\"%(openid_signout)s?next="
+"%(signup_url)s\">don't associate</a>)"
+msgstr ""
+"A sua nova conta vai ser associada com o seu OpenID: <strong class=\"openid"
+"\">%(openid)s</strong> (<a href=\"%(openid_signout)s?next=%(signup_url)s"
+"\">não associar</a>)"
 
 #: djangopeople/templates/signup.html:26
 msgid "1. Tell us who you are"
@@ -1085,7 +1267,9 @@ msgstr "2. Diga-nos onde vive"
 msgid ""
 "Latitude and longitude are missing. Please use the map to provide your "
 "location."
-msgstr "A latitude e a longitude estão em falta. Por favor utilize o mapa para especificar a sua localização."
+msgstr ""
+"A latitude e a longitude estão em falta. Por favor utilize o mapa para "
+"especificar a sua localização."
 
 #: djangopeople/templates/signup.html:90
 msgid "3. And a bit about you …"
@@ -1095,17 +1279,19 @@ msgstr "3. E um pouco sobre si..."
 msgid "4. Your privacy settings"
 msgstr "4. As suas definições de privacidade"
 
-#: djangopeople/templates/signup.html:139
+#: djangopeople/templates/signup.html:142
 msgid "5. Your skills and interests"
 msgstr "5. As suas aptidões e interesses"
 
-#: djangopeople/templates/signup.html:141
+#: djangopeople/templates/signup.html:144
 msgid ""
 "Tag yourself with your particular skills and interests, e.g. postgresql, "
 "nginx, css. Separate them with commas; spaces are allowed."
-msgstr "Marque-se a si próprio com as suas aptidões e interesses (por exemplo, PostgreSQL, Nginx, CSS) separadas por vírgulas. São permitidos espaços."
+msgstr ""
+"Marque-se a si próprio com as suas aptidões e interesses (por exemplo, "
+"PostgreSQL, Nginx, CSS) separadas por vírgulas. São permitidos espaços."
 
-#: djangopeople/templates/signup.html:150
+#: djangopeople/templates/signup.html:153
 msgid "Sign me up"
 msgstr "Registar-me"
 
@@ -1130,7 +1316,9 @@ msgstr "Foi definida uma nova palavra-chave"
 msgid ""
 "Your password has successfully been reset. You can use it right now on the "
 "<a href=\"%(login_url)s\">login page</a>."
-msgstr "A sua palavra-chave foi redefinida com êxito. Pode utilizá-la desde já na <a href=\"%(login_url)s\">página de autenticação</a>."
+msgstr ""
+"A sua palavra-chave foi redefinida com êxito. Pode utilizá-la desde já na <a "
+"href=\"%(login_url)s\">página de autenticação</a>."
 
 #: djangopeople/templates/password_reset/recovery_form.html:3
 #: djangopeople/templates/password_reset/recovery_form.html:5
@@ -1143,7 +1331,9 @@ msgstr "Recuperar a sua conta"
 msgid ""
 "Enter your username and we'll send an account recovery link to the e-mail "
 "address associated with your account."
-msgstr "Introduza o seu nome de utilizador e enviaremos para o endereço de e-mail associado com a sua conta uma ligação que lhe permitirá recuperar a mesma."
+msgstr ""
+"Introduza o seu nome de utilizador e enviaremos para o endereço de e-mail "
+"associado com a sua conta uma ligação que lhe permitirá recuperar a mesma."
 
 #: djangopeople/templates/password_reset/recovery_form.html:13
 msgid "Recover account"
@@ -1154,19 +1344,26 @@ msgstr "Recuperar conta"
 msgid ""
 "An email has just been sent to <strong>%(email)s</strong>. Use the link in "
 "it to set a new password."
-msgstr "Foi enviado um e-mail para <strong>%(email)s</strong> com uma ligação que permite definir uma nova palavra-chave."
+msgstr ""
+"Foi enviado um e-mail para <strong>%(email)s</strong> com uma ligação que "
+"permite definir uma nova palavra-chave."
 
 #: djangopeople/templates/password_reset/reset.html:9
 #, python-format
 msgid ""
-"Sorry, this password reset link is invalid. You can still <a "
-"href=\"%(recovery_url)s\">request a new one</a>."
-msgstr "Pedimos desculpa mas a ligação de redefinição de palavra-chave especificada não é válida. No entanto pode <a href=\"%(recovery_url)s\">solicitar uma nova</a>."
+"Sorry, this password reset link is invalid. You can still <a href="
+"\"%(recovery_url)s\">request a new one</a>."
+msgstr ""
+"Pedimos desculpa mas a ligação de redefinição de palavra-chave especificada "
+"não é válida. No entanto pode <a href=\"%(recovery_url)s\">solicitar uma "
+"nova</a>."
 
 #: djangopeople/templates/password_reset/reset.html:11
 #, python-format
 msgid "Hi, <strong>%(username)s</strong>. Please choose your new password."
-msgstr "Olá <strong>%(username)s</strong>. Por favor escolha a sua nova palavra-chave."
+msgstr ""
+"Olá <strong>%(username)s</strong>. Por favor escolha a sua nova palavra-"
+"chave."
 
 #: djangopeople/templates/password_reset/reset.html:14
 msgid "Set new password"

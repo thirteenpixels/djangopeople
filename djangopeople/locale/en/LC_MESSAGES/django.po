@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-20 11:38+0000\n"
+"POT-Creation-Date: 2012-12-18 12:54+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,16 +17,36 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: default_settings.py:40
+#: settings.py:44
 msgid "English"
 msgstr ""
 
-#: default_settings.py:41
+#: settings.py:45
 msgid "Czech"
 msgstr ""
 
-#: default_settings.py:42
+#: settings.py:46
 msgid "Russian"
+msgstr ""
+
+#: settings.py:47
+msgid "French"
+msgstr ""
+
+#: settings.py:48
+msgid "Spanish"
+msgstr ""
+
+#: settings.py:49
+msgid "Hebrew"
+msgstr ""
+
+#: settings.py:50
+msgid "Portuguese"
+msgstr ""
+
+#: settings.py:51
+msgid "Slovak"
 msgstr ""
 
 #: django_openidauth/models.py:8 djangopeople/models.py:123
@@ -202,9 +222,28 @@ msgstr ""
 msgid "Search visibility"
 msgstr ""
 
-#: djangopeople/forms.py:143 djangopeople/forms.py:363
-#: djangopeople/templates/edit_finding.html:76
-msgid "E-mail privacy"
+#: djangopeople/forms.py:138
+msgid "Allow search engines to index my profile page (recommended)"
+msgstr ""
+
+#: djangopeople/forms.py:139
+msgid "Don't allow search engines to index my profile page"
+msgstr ""
+
+#: djangopeople/forms.py:143
+msgid "Email privacy"
+msgstr ""
+
+#: djangopeople/forms.py:145
+msgid "Anyone can see my email address"
+msgstr ""
+
+#: djangopeople/forms.py:146
+msgid "Only logged-in users can see my email address"
+msgstr ""
+
+#: djangopeople/forms.py:147
+msgid "Noone can ever see my email address"
 msgstr ""
 
 #: djangopeople/forms.py:151 djangopeople/forms.py:371
@@ -212,14 +251,42 @@ msgstr ""
 msgid "IM privacy"
 msgstr ""
 
+#: djangopeople/forms.py:153
+msgid "Anyone can see my IM details"
+msgstr ""
+
+#: djangopeople/forms.py:154
+msgid "Only logged-in users can see my IM details"
+msgstr ""
+
 #: djangopeople/forms.py:158 djangopeople/forms.py:378
 #: djangopeople/templates/edit_finding.html:86
 msgid "IRC tracking"
 msgstr ""
 
+#: djangopeople/forms.py:160
+msgid "Keep track of the last time I was seen on IRC (requires your IRC nick)"
+msgstr ""
+
+#: djangopeople/forms.py:162
+msgid "Don't record the last time I was seen on IRC"
+msgstr ""
+
 #: djangopeople/forms.py:166 djangopeople/forms.py:386
 #: djangopeople/templates/edit_finding.html:39
 msgid "Looking for work?"
+msgstr ""
+
+#: djangopeople/forms.py:168
+msgid "Not looking for work at the moment"
+msgstr ""
+
+#: djangopeople/forms.py:169
+msgid "Looking for freelance work"
+msgstr ""
+
+#: djangopeople/forms.py:170
+msgid "Looking for full-time work"
 msgstr ""
 
 #: djangopeople/forms.py:174
@@ -252,6 +319,10 @@ msgstr ""
 
 #: djangopeople/forms.py:286
 msgid "The ISO code of the country you selected is invalid."
+msgstr ""
+
+#: djangopeople/forms.py:363 djangopeople/templates/edit_finding.html:76
+msgid "E-mail privacy"
 msgstr ""
 
 #: djangopeople/forms.py:439
@@ -1018,7 +1089,7 @@ msgstr ""
 #: djangopeople/templates/profile.html:130
 #, python-format
 msgid "%(counter)s mile away"
-msgid_plural "%( counter)s miles away"
+msgid_plural "%(counter)s miles away"
 msgstr[0] ""
 msgstr[1] ""
 
@@ -1100,24 +1171,24 @@ msgstr ""
 msgid "4. Your privacy settings"
 msgstr ""
 
-#: djangopeople/templates/signup.html:139
+#: djangopeople/templates/signup.html:142
 msgid "5. Your skills and interests"
 msgstr ""
 
-#: djangopeople/templates/signup.html:141
+#: djangopeople/templates/signup.html:144
 msgid ""
 "Tag yourself with your particular skills and interests, e.g. postgresql, "
 "nginx, css. Separate them with commas; spaces are allowed."
 msgstr ""
 
-#: djangopeople/templates/signup.html:150
+#: djangopeople/templates/signup.html:153
 msgid "Sign me up"
 msgstr ""
 
 #: djangopeople/templates/skill.html:8
 #, python-format
 msgid "%(counter)s Django Person mention this skill"
-msgid_plural "%( counter)s Django People mention this skill"
+msgid_plural "%(counter)s Django People mention this skill"
 msgstr[0] ""
 msgstr[1] ""
 
