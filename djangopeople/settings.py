@@ -108,6 +108,17 @@ ROOT_URLCONF = 'djangopeople.urls'
 
 TEMPLATE_DIRS = ()
 
+TEMPLATE_CONTEXT_PROCESSORS = (
+    "django.contrib.auth.context_processors.auth",
+    "django.core.context_processors.debug",
+    "django.core.context_processors.i18n",
+    "django.core.context_processors.media",
+    "django.core.context_processors.static",
+    "django.core.context_processors.tz",
+    "django.contrib.messages.context_processors.messages",
+    "sekizai.context_processors.sekizai",
+)
+
 INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -125,6 +136,7 @@ INSTALLED_APPS = (
     'djangopeople.machinetags',
 
     'password_reset',
+    'sekizai',
 )
 
 if 'SENTRY_DSN' in os.environ:

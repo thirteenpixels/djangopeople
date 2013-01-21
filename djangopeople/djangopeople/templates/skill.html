@@ -1,5 +1,5 @@
 {% extends "maps.html" %}
-{% load staticfiles %}
+{% load staticfiles person_list_items %}
 
 {% block title %}{{ tag }} |{% endblock %}
 
@@ -16,6 +16,6 @@
 
 {% block content %}
 	<ul class="detailsList split">
-		{% load person_list_items %}{% person_list_items people_list %}
+		{% person_list_items people_list %}
 	</ul>
 {% endblock %}

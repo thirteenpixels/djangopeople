@@ -1,4 +1,4 @@
-{% load static staticfiles %}
+{% load static staticfiles sekizai_tags %}
 <!DOCTYPE html>
 {# Not all our third-party app views use RequestContext #}
 {% get_static_prefix as STATIC_URL %}
@@ -8,14 +8,8 @@
 		<title>{% block title %}{% endblock %} Django People</title>
 		<link rel="shortcut icon" href="{% static "djangopeople/img/favicon.ico" %}">
 		<link rel="stylesheet" href="{% static "djangopeople/css/styles.css" %}" type="text/css" media="all" charset="utf-8">
-		<script type="text/javascript" src="{% static "djangopeople/js/jquery-1.5.2.min.js" %}"></script>
-		<script type="text/javascript">
-			var STATIC_URL = '{{ STATIC_URL }}';
-		</script>
-		<script type="text/javascript" src="{% static "djangopeople/js/common.js" %}"></script>
-		{% block maps_api %}{% endblock %}
-		{% block js %}{% endblock %}
-		{% block extrahead %}{% endblock %}
+		{% render_block "css" %}
+		{% block adder %}{% endblock %}
 	</head>
 <body{% block bodymeta %}{% endblock %}>
 <div class="wrapper">
@@ -60,5 +54,13 @@
 <div class="footer">
 	<p>{% blocktrans %}Hosted on <span class="heroku">Heroku</span>{% endblocktrans %}</p>
 </div>
+
+<script type="text/javascript" src="{% static "djangopeople/js/jquery-1.5.2.min.js" %}"></script>
+<script type="text/javascript">
+	var STATIC_URL = '{{ STATIC_URL }}';
+</script>
+<script type="text/javascript" src="{% static "djangopeople/js/common.js" %}"></script>
+
+{% render_block "js" %}
 </body>
 </html>

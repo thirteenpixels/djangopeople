@@ -1,24 +1,28 @@
 {% extends "maps.html" %}
-{% load staticfiles %}
+{% load staticfiles sekizai_tags %}
 
 {% block title %}{% trans "Change your location" %} |{% endblock %}
-
-{% block js %}
-<script type="text/javascript" src="{% static "djangopeople/js/jquery.color.js" %}"></script>
-<script type="text/javascript" src="{% static "djangopeople/js/signup.js" %}"></script>
-<link rel="stylesheet" href="{% static "djangopeople/css/flags.css" %}" type="text/css">
-<style type="text/css">
-#id_location_description {
-	width: 24em;
-}
-</style>
-{% endblock %}
 
 {% block header%}
 	<h1>{% trans "Change your location" %}</h1>
 {% endblock %}
 
 {% block content %}
+
+{% addtoblock "js" %}
+	<script type="text/javascript" src="{% static "djangopeople/js/jquery.color.js" %}"></script>
+	<script type="text/javascript" src="{% static "djangopeople/js/signup.js" %}"></script>
+{% endaddtoblock %}
+
+{% addtoblock "css" %}
+	<link rel="stylesheet" href="{% static "djangopeople/css/flags.css" %}" type="text/css">
+	<style type="text/css">
+		#id_location_description {
+			width: 24em;
+		}
+	</style>
+{% endaddtoblock %}
+
 {% endblock %}
 {% block extra %}
 <div class="content">
@@ -30,7 +34,7 @@
 </div>
 
 <div class="content">
-	<form method="post" action="{% url 'edit_location' user.username %}">
+	<form method="post" action="{% url "edit_location" user.username %}">
 		{% csrf_token %}
 		<fieldset>
 			<div class="fieldWrapper" id="location">

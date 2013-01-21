@@ -1,29 +1,30 @@
 {% extends "maps.html" %}
-{% load staticfiles %}
+{% load staticfiles person_list_items sekizai_tags %}
 
 {% block title %}{{ country }} |{% endblock %}
 
-{% block maps_code %}
-<script type="text/javascript">
-window.onload = function() {
-	var swBound = new google.maps.LatLng({{ country.bbox_south }}, {{ country.bbox_west }});
-	var neBound = new google.maps.LatLng({{ country.bbox_north }}, {{ country.bbox_east }});
-	var boundBox = new google.maps.LatLngBounds(swBound, neBound);
-	var gmap = new google.maps.Map(document.getElementById('gmap'), {
-		zoom: 9,
-		center: boundBox.getCenter(),
-		mapTypeId: google.maps.MapTypeId.ROADMAP,
-		scrollwheel: false
-	});
-	gmap.fitBounds(boundBox);
-
-	// Plot the people as markers
-	plotPeopleOnMap(people, gmap);
-};
-</script>
-{% endblock %}
-
 {% block header %}
+
+{% addtoblock "js" %}
+<script type="text/javascript">
+	$(function() {
+		var swBound = new google.maps.LatLng({{ country.bbox_south }}, {{ country.bbox_west }});
+		var neBound = new google.maps.LatLng({{ country.bbox_north }}, {{ country.bbox_east }});
+		var boundBox = new google.maps.LatLngBounds(swBound, neBound);
+		var gmap = new google.maps.Map(document.getElementById('gmap'), {
+			zoom: 9,
+			center: boundBox.getCenter(),
+			mapTypeId: google.maps.MapTypeId.ROADMAP,
+			scrollwheel: false
+		});
+		gmap.fitBounds(boundBox);
+
+		// Plot the people as markers
+		plotPeopleOnMap(people, gmap);
+	});
+</script>
+{% endaddtoblock %}
+
 	{% if country.iso_code or country.flag %}<img src="{% static country.flag_url %}" alt="{{ country }}" class="main">{% endif %}
 	<h1>{{ country }}</h1>
 	<p class="meta">
@@ -77,9 +78,9 @@ window.onload = function() {
 	{% endif %}
 		<ul class="detailsList split">
 			{% if is_paginated %}
-				{% load person_list_items %}{% person_list_items page_obj.object_list %}
+				{% person_list_items page_obj.object_list %}
 			{% else %}
-				{% load person_list_items %}{% person_list_items people_list %}
+				{% person_list_items people_list %}
 			{% endif %}
 		</ul>
 		{% if regions %}

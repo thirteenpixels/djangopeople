@@ -1,49 +1,53 @@
 {% extends "base.html" %}
-{% load staticfiles %}
+{% load staticfiles sekizai_tags %}
 
 {% block title %}{% trans "Log in" %} |{% endblock %}
 
-{% block nav_li_class_login %} class="current"{% endblock %}>
-
-{% block js %}
-<script type="text/javascript" src="{% static "djangopeople/js/jquery.color.js" %}"></script>
-<script type="text/javascript">
-jQuery(function($) {
-	$('p.invalid').css({
-		'backgroundColor': 'red',
-		'color': 'white'
-	});
-	setTimeout(function() {
-		$('p.invalid').animate({
-			'backgroundColor': 'pink',
-			'color': 'black'
-		}, 1500);
-	}, 2000);
-	{% if form.errors %}
-		$('input#id_password').focus();
-	{% else %}
-		$('input#id_username').focus();
-	{% endif %}
-});
-</script>
-<style type="text/css">
-p.invalid {
-	padding: 0.5em 0.3em 0.3em 0.5em;
-	margin: 1em 0;
-}
-input.openid {
-	background: url('{% static "djangopeople/img/openid-14x14.png" %}') no-repeat;
-	background-position: 0 50%;
-	padding-left: 16px;
-}
-</style>
-{% endblock %}
+{% block nav_li_class_login %} class="current"{% endblock %}
 
 {% block header%}
 	<h1>{% trans "Log in" %}</h1>
 {% endblock %}
 
 {% block content %}
+
+{% addtoblock "js" %}
+<script type="text/javascript" src="{% static "djangopeople/js/jquery.color.js" %}"></script>
+<script type="text/javascript">
+	$(function() {
+		$('p.invalid').css({
+			'backgroundColor': 'red',
+			'color': 'white'
+		});
+		setTimeout(function() {
+			$('p.invalid').animate({
+				'backgroundColor': 'pink',
+				'color': 'black'
+			}, 1500);
+		}, 2000);
+		{% if form.errors %}
+			$('input#id_password').focus();
+		{% else %}
+			$('input#id_username').focus();
+		{% endif %}
+	});
+</script>
+{% endaddtoblock %}
+
+{% addtoblock "css" %}
+<style type="text/css">
+	p.invalid {
+		padding: 0.5em 0.3em 0.3em 0.5em;
+		margin: 1em 0;
+	}
+	input.openid {
+		background: url('{% static "djangopeople/img/openid-14x14.png" %}') no-repeat;
+		background-position: 0 50%;
+		padding-left: 16px;
+	}
+</style>
+{% endaddtoblock %}
+
 	<form method="post" action="{% url "login" %}">
 		{% csrf_token %}
 		{% if form.errors %}

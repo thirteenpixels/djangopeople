@@ -1,21 +1,25 @@
 {% extends "maps.html" %}
-{% load staticfiles %}
+{% load staticfiles sekizai_tags %}
 
 {% block title %}{% trans "Sign up" %} |{% endblock %}
 
 {% block nav_li_class_signup %} class="current"{% endblock %}
-
-{% block js %}
-<script type="text/javascript" src="{% static "djangopeople/js/jquery.color.js" %}"></script>
-<script type="text/javascript" src="{% static "djangopeople/js/signup.js" %}"></script>
-<link rel="stylesheet" href="{% static "djangopeople/css/flags.css" %}" type="text/css">
-{% endblock %}
 
 {% block header%}
 	<h1>{% trans "Sign up as a Django Person" %}</h1>
 {% endblock %}
 
 {% block content %}
+
+{% addtoblock "js" %}
+<script type="text/javascript" src="{% static "djangopeople/js/jquery.color.js" %}"></script>
+<script type="text/javascript" src="{% static "djangopeople/js/signup.js" %}"></script>
+{% endaddtoblock %}
+
+{% addtoblock "css" %}
+<link rel="stylesheet" href="{% static "djangopeople/css/flags.css" %}" type="text/css">
+{% endaddtoblock %}
+
 	<form method="post" action="{% url "signup" %}">{% csrf_token %}
 		{% if not openid %}{% url "openid_begin" as openid_url %}
 			<p>{% blocktrans %}Got an <strong class="openid">OpenID</strong>? <a href="{{ openid_url }}">Sign up with your OpenID now!</a>{% endblocktrans %}</p>

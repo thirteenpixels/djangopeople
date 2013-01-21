@@ -1,47 +1,50 @@
 {% extends "maps.html" %}
-{% load staticfiles %}
+{% load staticfiles gravatar sekizai_tags %}
 
 {% block title%}{{ person }} |{% endblock %}
 
 {% block nav_li_class_profile %}{% if is_owner %} class="current"{% endif %}{% endblock %}
 
-{% block js %}{% load gravatar %}
-{% if person.openid_server %}<link rel="openid.server" href="{{ person.openid_server }}">{% endif %}
-{% if person.openid_delegate %}<link rel="openid.delegate" href="{{ person.openid_delegate }}">{% endif %}
-{% if privacy.hide_from_search %}<meta name="ROBOTS" content="NOINDEX, FOLLOW">{% endif %}
-{% if person.latitude and person.longitude %}
-<script type="text/javascript">
-var nearby_people = [
-	// latitude, longitude, name, username, location description, flag, isocode
-	{% for p in nearest_people %}
-		[{{ p.latitude_str }}, {{ p.longitude_str }}, "{{ p|escapejs }}", "{{ p.user.username|escapejs }}", "{{ p.location_description|escapejs }}", "{% gravatar p.user.email 40 %}", "{{ p.country.iso_code|lower }}"]{% if not forloop.last %},{% endif %}
-	{% endfor %}
-];
-
-var person_latitude = {{ person.latitude_str }};
-var person_longitude = {{ person.longitude_str }};
-</script>
-<script type="text/javascript" src="{% static "djangopeople/js/profile.js" %}"></script>
-<style type="text/css">
-#id_skills {
-	width: 80%;
-}
-a.changeloc, h2 a.edit, div.bio a.edit {
-	font-size: 0.5em;
-	text-decoration: none;
-	vertical-align: middle;
-}
-div.bio a.edit {
-	font-size: 0.8em;
-}
-</style>
-{% endif %}
-
-{% endblock %}
-
 {% block bodymeta %} class="vcard hresume"{% endblock %}
 
 {% block header %}
+
+{% addtoblock "css" %}
+{% if person.openid_server %}<link rel="openid.server" href="{{ person.openid_server }}">{% endif %}
+{% if person.openid_delegate %}<link rel="openid.delegate" href="{{ person.openid_delegate }}">{% endif %}
+{% if privacy.hide_from_search %}<meta name="ROBOTS" content="NOINDEX, FOLLOW">{% endif %}
+<style type="text/css">
+	#id_skills {
+		width: 80%;
+	}
+	a.changeloc, h2 a.edit, div.bio a.edit {
+		font-size: 0.5em;
+		text-decoration: none;
+		vertical-align: middle;
+	}
+	div.bio a.edit {
+		font-size: 0.8em;
+	}
+</style>
+{% endaddtoblock %}
+
+{% addtoblock "js" %}
+{% if person.latitude and person.longitude %}
+<script type="text/javascript">
+	var nearby_people = [
+		// latitude, longitude, name, username, location description, flag, isocode
+		{% for p in nearest_people %}
+			[{{ p.latitude_str }}, {{ p.longitude_str }}, "{{ p|escapejs }}", "{{ p.user.username|escapejs }}", "{{ p.location_description|escapejs }}", "{% gravatar p.user.email 40 %}", "{{ p.country.iso_code|lower }}"]{% if not forloop.last %},{% endif %}
+		{% endfor %}
+	];
+
+	var person_latitude = {{ person.latitude_str }};
+	var person_longitude = {{ person.longitude_str }};
+</script>
+<script type="text/javascript" src="{% static "djangopeople/js/profile.js" %}"></script>
+{% endif %}
+{% endaddtoblock %}
+
 	<img src="{% gravatar person.user.email 83 %}" alt="{{ person }}" class="main photo">
 	<h1 class="fn n">
 		<span class="given-name">{{ person.user.first_name }}</span>

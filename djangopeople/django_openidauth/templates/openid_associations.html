@@ -1,7 +1,10 @@
 {% extends "base.html" %}
+{% load sekizai_tags %}
 {% block title %}{% trans "OpenID associations" %} |{% endblock %}
 
-{% block js %}
+{% block content %}
+
+{% addtoblock "css" %}
 	<style type="text/css">
 		div#openidadmin ul {
 			padding-left: 2em;
@@ -13,9 +16,8 @@
 			color: red;
 		}
 	</style>
-{% endblock %}
+{% endaddtoblock %}
 
-{% block content %}
 	<h2>{% trans "OpenID associations" %}</h2>
 
 	{% if messages %}

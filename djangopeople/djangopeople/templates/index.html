@@ -1,29 +1,30 @@
 {% extends "maps.html" %}
-{% load staticfiles gravatar %}
-
-{% block extrahead %}{{ block.super }}
-	<link rel="stylesheet" href="{% static "djangopeople/css/flags.css" %}" type="text/css" media="all" charset="utf-8">
-{% endblock %}
+{% load staticfiles gravatar sekizai_tags %}
 
 {% block nav_li_class_home %} class="current"{% endblock %}
 
-{% block maps_code %}
-<script type="text/javascript">
-window.onload = function() {
-	var center = new google.maps.LatLng(19.97335, -15.8203);
-	var gmap = new google.maps.Map(document.getElementById('gmap'), {
-		zoom : 2,
-		center: center,
-		mapTypeId: google.maps.MapTypeId.ROADMAP,
-		scrollwheel: false
-	});
-	// Plot the people as markers
-	plotPeopleOnMap(people, gmap);
-};
-</script>
-{% endblock maps_code %}
-
 {% block map %}
+
+{% addtoblock "css" %}
+	<link rel="stylesheet" href="{% static "djangopeople/css/flags.css" %}" type="text/css" media="all" charset="utf-8">
+{% endaddtoblock %}
+
+{% addtoblock "js" %}
+<script type="text/javascript">
+	$(function() {
+		var center = new google.maps.LatLng(19.97335, -15.8203);
+		var gmap = new google.maps.Map(document.getElementById('gmap'), {
+			zoom : 2,
+			center: center,
+			mapTypeId: google.maps.MapTypeId.ROADMAP,
+			scrollwheel: false
+		});
+		// Plot the people as markers
+		plotPeopleOnMap(people, gmap);
+	});
+</script>
+{% endaddtoblock %}
+
 	<div class="mapContainer major">
 		<div id="gmap">&nbsp;</div>
 	</div>

@@ -1,4 +1,5 @@
 {% extends "maps.html" %}
+{% load person_list_items %}
 
 {% block title %}{% if q %}{% blocktrans %}Search: {{ q }}{% endblocktrans %}{% else %}{% trans "Search" %}{% endif %} |{% endblock %}
 
@@ -28,7 +29,7 @@
 	{% endif %}
 	{% if people_list %}
 		<ul class="detailsList split">
-			{% load person_list_items %}{% person_list_items people_list %}
+			{% person_list_items people_list %}
 		</ul>
 	{% endif %}
 {% endblock %}
