@@ -92,6 +92,16 @@ class DjangoPeopleTest(TestCase):
         response = self.client.get(url)
         self.assertEqual(response.status_code, 302)
 
+    def test_mailinator(self):
+        url = reverse('signup')
+        self.client.get(url)
+        data = {
+            'email': 'test@mailinator.com',
+        }
+        response = self.client.post(url, data)
+        self.assertFormError(response, 'form', 'email',
+                             ["Please don't use a disposable email address."])
+
     def test_signup(self):
         url = reverse('signup')
         response = self.client.get(url)

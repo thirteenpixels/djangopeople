@@ -215,6 +215,10 @@ class SignupForm(PopulateChoices, forms.Form):
             pass
         else:
             raise forms.ValidationError(_('That e-mail is already in use'))
+
+        if email.endswith('@mailinator.com'):
+            raise forms.ValidationError(
+                _("Please don't use a disposable email address."))
         return email
 
     def clean_region(self):
