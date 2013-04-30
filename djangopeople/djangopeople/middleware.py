@@ -2,7 +2,6 @@ import re
 
 from django.conf import settings
 from django.core.exceptions import MiddlewareNotUsed
-from django.http import get_host
 from django.utils.http import urlquote
 from django.shortcuts import redirect
 
@@ -24,7 +23,7 @@ class NoDoubleSlashes:
 
 class RemoveWWW(object):
     def process_request(self, request):
-        host = get_host(request)
+        host = request.get_host()
         if host and host.startswith('www.'):
             newurl = "%s://%s%s" % (request.is_secure() and 'https' or 'http',
                                     host[len('www.'):], request.path)

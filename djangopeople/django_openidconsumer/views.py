@@ -8,7 +8,7 @@ from openid.yadis import xri
 
 from django.conf import settings
 from django.core.urlresolvers import reverse
-from django.http import HttpResponse, get_host
+from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.utils.encoding import smart_unicode
 from django.utils.html import escape
@@ -22,7 +22,7 @@ NEXT_URL_RE = re.compile('^/[-\w/]+$')
 
 def get_url_host(request):
     protocol = 'https' if request.is_secure() else 'http'
-    host = escape(get_host(request))
+    host = escape(request.get_host())
     return '%s://%s' % (protocol, host)
 
 
@@ -163,7 +163,7 @@ def signout(request):
 
 def logo(request):
     return HttpResponse(
-        OPENID_LOGO_BASE_64.decode('base64'), mimetype='image/gif'
+        OPENID_LOGO_BASE_64.decode('base64'), content_type='image/gif'
     )
 
 # Logo from http://openid.net/login-bg.gif

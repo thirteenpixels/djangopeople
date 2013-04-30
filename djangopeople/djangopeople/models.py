@@ -143,9 +143,9 @@ class DjangoPerson(models.Model):
 
     # OpenID delegation
     openid_server = models.URLField(_('OpenID server'), max_length=255,
-                                    blank=True, verify_exists=False)
+                                    blank=True)
     openid_delegate = models.URLField(_('OpenID delegate'), max_length=255,
-                                      blank=True, verify_exists=False)
+                                      blank=True)
 
     # Last active on IRC
     last_active_on_irc = models.DateTimeField(_('Last active on IRC'),

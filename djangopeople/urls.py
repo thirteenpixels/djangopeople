@@ -21,7 +21,7 @@ favicon = perm_redirect(
 )
 
 robots = lambda _: HttpResponse('User-agent: *\nDisallow:\n',
-                                mimetype='text/plain')
+                                content_type='text/plain')
 gone = lambda _: HttpResponseGone()
 
 admin.autodiscover()

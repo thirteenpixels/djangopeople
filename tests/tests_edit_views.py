@@ -369,14 +369,26 @@ class EditViewTest(TestCase):
 
         # test display openid change form (with initial data)
         response = self.client.get(url_edit_account)
-        self.assertContains(response, '<input id="id_openid_server" '
-                                      'type="text" name="openid_server" '
-                                      'value="http://example.com/" '
-                                      'maxlength="255" />')
-        self.assertContains(response, '<input id="id_openid_delegate" '
-                                      'type="text" name="openid_delegate" '
-                                      'value="http://google.com/" '
-                                      'maxlength="255" />')
+        self.assertHTMLEqual(
+            response.content.split(
+                '<label for="id_openid_server">OpenID server</label>'
+            )[1].split('</div>')[0],
+            (
+                '<input id="id_openid_server" type="text" '
+                'name="openid_server" value="http://example.com/" '
+                'maxlength="255" />')
+        )
+        self.assertHTMLEqual(
+            response.content.split(
+                '<label for="id_openid_delegate">OpenID delegate</label>'
+            )[1].split('</div>')[0],
+            (
+                '<input id="id_openid_delegate" '
+                'type="text" name="openid_delegate" '
+                'value="http://google.com/" '
+                'maxlength="255" />'
+            )
+        )
 
         # test change openid settings
         response = self.client.post(url_edit_account,
@@ -465,16 +477,44 @@ class EditViewTest(TestCase):
         # test portfolio edit form
         url_edit_portfolio = reverse('edit_portfolio', args=['daveb'])
         response = self.client.get(url_edit_portfolio)
-        self.assertContains(response, '<input id="id_title_1" type="text" '
-                                      'name="title_1" value="cheese-shop" '
-                                      'maxlength="100" />')
-        self.assertContains(response, '<input id="id_url_1" type="text" '
-                                      'name="url_1" value="http://example.org/'
-                                      '" maxlength="255" />')
-        self.assertContains(response, '<input id="id_title_2" type="text" '
-                                      'name="title_2" maxlength="100" />')
-        self.assertContains(response, '<input id="id_url_2" type="text" '
-                                      'name="url_2" maxlength="255" />')
+        self.assertHTMLEqual(
+            response.content.split(
+                '<label for="id_title_1">Title 1</label>'
+            )[1].split('</div>')[0],
+            (
+                '<input id="id_title_1" type="text" '
+                'name="title_1" value="cheese-shop" '
+                'maxlength="100" />'
+            )
+        )
+        self.assertHTMLEqual(
+            response.content.split(
+                '<label for="id_url_1">URL 1</label>'
+            )[1].split('</div>')[0],
+            (
+                '<input id="id_url_1" type="text" '
+                'name="url_1" value="http://example.org/'
+                '" maxlength="255" />'
+            )
+        )
+        self.assertHTMLEqual(
+            response.content.split(
+                '<label for="id_title_2">Title 2</label>'
+            )[1].split('</div>')[0],
+            (
+                '<input id="id_title_2" type="text" '
+                'name="title_2" maxlength="100" />'
+            )
+        )
+        self.assertHTMLEqual(
+            response.content.split(
+                '<label for="id_url_2">URL 2</label>'
+            )[1].split('</div>')[0],
+            (
+                '<input id="id_url_2" type="text" '
+                'name="url_2" maxlength="255" />'
+            )
+        )
 
         # test form error messages
         response = self.client.post(url_edit_portfolio,

@@ -16,7 +16,7 @@ def irc_lookup(request, irc_nick):
             value=irc_nick,
         ).content_object
     except MachineTaggedItem.DoesNotExist:
-        return HttpResponse('no match', mimetype='text/plain')
+        return HttpResponse('no match', content_type='text/plain')
     scheme = 'https' if request.is_secure() else 'http'
     url = '%s://%s%s' % (scheme,
                          RequestSite(request).domain,
@@ -24,7 +24,7 @@ def irc_lookup(request, irc_nick):
     return HttpResponse(
         u'%s, %s, %s, %s' % (person, person.location_description,
                              person.country, url),
-        mimetype='text/plain',
+        content_type='text/plain',
     )
 
 
@@ -36,7 +36,7 @@ def irc_redirect(request, irc_nick):
             value=irc_nick,
         ).content_object
     except MachineTaggedItem.DoesNotExist:
-        return HttpResponse('no match', mimetype='text/plain')
+        return HttpResponse('no match', content_type='text/plain')
     scheme = 'https' if request.is_secure() else 'http'
     url = '%s://%s%s' % (scheme, RequestSite(request).domain,
                          reverse('user_profile', args=[person.user.username]))
@@ -69,4 +69,4 @@ def irc_spotted(request, irc_nick):
 
 
 def api_response(code):
-    return HttpResponse(code, mimetype='text/plain')
+    return HttpResponse(code, content_type='text/plain')
