@@ -99,8 +99,10 @@ def associations(request, template_name='openid_associations.html'):
             openid = del_hashes[key]
             if openid in associated_openids:
                 # if user has no password and this is last one, don't allow
-                if (not request.user.has_usable_password()) \
-                    and len(associated_openids) < 2:
+                if (
+                    not request.user.has_usable_password()
+                    and len(associated_openids) < 2
+                ):
                     messages.append(_(
                         'You need to set a password if you want to remove all '
                         'of your OpenIDs'
@@ -109,8 +111,7 @@ def associations(request, template_name='openid_associations.html'):
                     unassociate_openid(request.user, openid)
                     associated_openids.remove(openid)
                     messages.append(_('%s has been removed from your '
-                                      'account') % escape(openid)
-                    )
+                                      'account') % escape(openid))
 
     # At this point associated_openids represents the current set of associated
     # OpenIDs, and messages contains any messages that should be displayed. The

@@ -233,10 +233,8 @@ class DjangoPerson(models.Model):
             namespace='privacy', predicate='irctrack', value='private',
         ).count()
 
-tagging.register(DjangoPerson,
-    tag_descriptor_attr='skilltags',
-    tagged_item_manager_attr='skilltagged',
-)
+tagging.register(DjangoPerson, tag_descriptor_attr='skilltags',
+                 tagged_item_manager_attr='skilltagged')
 
 
 class PortfolioSite(models.Model):

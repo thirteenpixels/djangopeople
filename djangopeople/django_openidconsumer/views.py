@@ -85,7 +85,7 @@ def begin(request, sreg=None, extension_args=None,
 
     if xri.identifierScheme(user_url) == 'XRI' and getattr(
         settings, 'OPENID_DISALLOW_INAMES', False
-        ):
+    ):
         return on_failure(request, _('i-names are not supported'))
 
     consumer = Consumer(request.session, DjangoOpenIDStore())

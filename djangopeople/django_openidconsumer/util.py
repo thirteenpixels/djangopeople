@@ -36,7 +36,7 @@ class DjangoOpenIDStore(OpenIDStore):
     def __init__(self):
         self.max_nonce_age = 6 * 60 * 60  # Six hours
 
-    def storeAssociation(self, server_url, association):
+    def storeAssociation(self, server_url, association):  # noqa
         Association.objects.create(
             server_url=server_url,
             handle=association.handle,
@@ -46,7 +46,7 @@ class DjangoOpenIDStore(OpenIDStore):
             assoc_type=association.assoc_type
         )
 
-    def getAssociation(self, server_url, handle=None):
+    def getAssociation(self, server_url, handle=None):  # noqa
         assocs = []
         if handle is not None:
             assocs = Association.objects.filter(
@@ -78,7 +78,7 @@ class DjangoOpenIDStore(OpenIDStore):
         associations.sort()
         return associations[-1][1]
 
-    def removeAssociation(self, server_url, handle):
+    def removeAssociation(self, server_url, handle):  # noqa
         assocs = list(Association.objects.filter(
             server_url=server_url, handle=handle
         ))
@@ -87,12 +87,12 @@ class DjangoOpenIDStore(OpenIDStore):
             assoc.delete()
         return assocs_exist
 
-    def storeNonce(self, nonce):
+    def storeNonce(self, nonce):  # noqa
         nonce, created = Nonce.objects.get_or_create(
             nonce=nonce, defaults={'expires': int(time.time())}
         )
 
-    def useNonce(self, server_url, timestamp, salt):
+    def useNonce(self, server_url, timestamp, salt):  # noqa
         if abs(timestamp - time.time()) > openid.store.nonce.SKEW:
             return False
 
@@ -112,18 +112,17 @@ class DjangoOpenIDStore(OpenIDStore):
             return True
         return False
 
-    def getAuthKey(self):
+    def getAuthKey(self):  # noqa
         # Use first AUTH_KEY_LEN characters of md5 hash of SECRET_KEY
         return hashlib.md5(settings.SECRET_KEY).hexdigest()[:self.AUTH_KEY_LEN]
 
-    def isDumb(self):
+    def isDumb(self):  # noqa
         return False
 
 
 def from_openid_response(openid_response):
     issued = int(time.time())
-    sreg_resp = sreg.SRegResponse.fromSuccessResponse(openid_response) \
-            or []
+    sreg_resp = sreg.SRegResponse.fromSuccessResponse(openid_response) or []
     ax_resp = ax.FetchResponse.fromSuccessResponse(openid_response)
     ax_args = {}
     if ax_resp is not None:

@@ -17,13 +17,13 @@ from djangopeople.machinetags.utils import tagdict
 class EditViewTest(TestCase):
     fixtures = ['test_data']
 
-    def setUp(self):
+    def setUp(self):  # noqa
         super(EditViewTest, self).setUp()
         self.client.login(username='daveb', password='123456')
 
         img_content = open(os.path.join(settings.OUR_ROOT,
                                         'djangopeople/fixtures/pony.gif'),
-                                  'rb').read()
+                           'rb').read()
         sha1sum = hashlib.sha1(img_content).hexdigest()
         self.hashed_upload_img_file_name = os.path.join(sha1sum[:1],
                                                         sha1sum[1:2], sha1sum)
@@ -33,7 +33,7 @@ class EditViewTest(TestCase):
         if not os.path.exists(self.profile_img_path):
             os.makedirs(self.profile_img_path)
 
-    def tearDown(self):
+    def tearDown(self):  # noqa
         # remove uploaded profile picture
         if os.path.exists(self.profile_img_path):
             shutil.rmtree(self.profile_img_path)

@@ -39,8 +39,10 @@ def region_choices():
 
 
 def not_in_the_atlantic(self):
-    if (self.cleaned_data.get('latitude', '') and
-        self.cleaned_data.get('longitude', '')):
+    if (
+        self.cleaned_data.get('latitude', '') and
+        self.cleaned_data.get('longitude', '')
+    ):
         lat = self.cleaned_data['latitude']
         lon = self.cleaned_data['longitude']
 
@@ -136,7 +138,8 @@ class SignupForm(PopulateChoices, forms.Form):
         choices=(
             ('public',
              _('Allow search engines to index my profile page (recommended)')),
-            ('private', _("Don't allow search engines to index my profile page")),
+            ('private', _("Don't allow search engines to "
+                          "index my profile page")),
         ), widget=forms.RadioSelect, initial='public'
     )
     privacy_email = forms.ChoiceField(
@@ -158,7 +161,7 @@ class SignupForm(PopulateChoices, forms.Form):
         label=_('IRC tracking'),
         choices=(
             ('public', _('Keep track of the last time I was seen on IRC '
-                        '(requires your IRC nick)')),
+                         '(requires your IRC nick)')),
             ('private', _("Don't record the last time I was seen on IRC")),
         ), widget=forms.RadioSelect, initial='public'
     )
@@ -410,13 +413,15 @@ class FindingForm(forms.ModelForm):
         user.last_name = self.cleaned_data['last_name']
         user.save()
 
-        for fieldname, (namespace, predicate) in \
-            MACHINETAGS_FROM_FIELDS.items():
+        for fieldname, (namespace,
+                        predicate) in MACHINETAGS_FROM_FIELDS.items():
             self.instance.machinetags.filter(
                 namespace=namespace, predicate=predicate
             ).delete()
-            if fieldname in self.cleaned_data and \
-                   self.cleaned_data[fieldname].strip():
+            if (
+                fieldname in self.cleaned_data and
+                self.cleaned_data[fieldname].strip()
+            ):
                 value = self.cleaned_data[fieldname].strip()
                 self.instance.add_machinetag(namespace, predicate, value)
 
@@ -471,8 +476,10 @@ class PortfolioForm(forms.ModelForm):
 
 def make_validator(key, form):
     def check():
-        if form.cleaned_data.get(key.replace('url_', 'title_')) and \
-            not form.cleaned_data.get(key):
+        if (
+            form.cleaned_data.get(key.replace('url_', 'title_')) and
+            not form.cleaned_data.get(key)
+        ):
             raise forms.ValidationError(_('You need to provide a URL'))
         return form.cleaned_data.get(key)
     return check

@@ -24,23 +24,27 @@ class DjangoPeopleUnitTest(TestCase):
 
     def test_portfolio_site(self):
         p = PortfolioSite.objects.get(pk=1)
-        self.assertEquals(p.__unicode__(),
+        self.assertEquals(
+            p.__unicode__(),
             u'cheese-shop <http://example.org/>')
 
     def test_country_site(self):
         cs = CountrySite.objects.get(pk=1)
-        self.assertEquals(cs.__unicode__(),
+        self.assertEquals(
+            cs.__unicode__(),
             u'django AT <http://example.org/>')
 
     def test_django_person(self):
         dave = DjangoPerson.objects.get(pk=1)
         louis = DjangoPerson.objects.get(pk=2)
-        self.assertEquals(dave.__unicode__(),
+        self.assertEquals(
+            dave.__unicode__(),
             u'Dave Brubeck')
         self.assertEquals(dave.irc_nick(), 'davieboy')
         self.assertEquals(louis.irc_nick(), '<none>')
         self.assertTrue(dave.irc_tracking_allowed())
         self.assertEquals(dave.get_nearest(), [louis])
-        self.assertEquals(louis.location_description_html(),
+        self.assertEquals(
+            louis.location_description_html(),
             'Paris, France')
         self.assertEquals(louis.get_absolute_url(), '/satchmo/')

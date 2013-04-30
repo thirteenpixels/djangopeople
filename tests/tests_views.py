@@ -341,7 +341,8 @@ class DjangoPeopleTest(TestCase):
 
         url = reverse('irc_lookup', args=['davieboy'])
         response = self.client.get(url)
-        self.assertContains(response,
+        self.assertContains(
+            response,
             'Dave Brubeck, Vienna, Austria, Austria, http://testserver/daveb/')
 
     def test_irc_redirect(self):

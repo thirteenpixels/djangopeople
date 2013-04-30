@@ -18,8 +18,8 @@ from tagging.models import Tag, TaggedItem
 from tagging.utils import calculate_cloud, get_tag
 
 from . import utils
-from .constants import (MACHINETAGS_FROM_FIELDS,
-                                    IMPROVIDERS_DICT, SERVICES_DICT)
+from .constants import (MACHINETAGS_FROM_FIELDS, IMPROVIDERS_DICT,
+                        SERVICES_DICT)
 from .forms import (SkillsForm, SignupForm, PortfolioForm, BioForm,
                     LocationForm, FindingForm, AccountForm, PasswordForm,
                     DeletionRequestForm, AccountDeletionForm)
@@ -40,8 +40,11 @@ def must_be_owner(view):
                or request.user.username != kwargs['username']:
                 return HttpResponseForbidden('Not allowed')
         else:
-            if not request.user or request.user.is_anonymous() \
-                or request.user.username != args[0]:
+            if (
+                not request.user or
+                request.user.is_anonymous() or
+                request.user.username != args[0]
+            ):
                 return HttpResponseForbidden('Not allowed')
         return view(request, *args, **kwargs)
     return inner
@@ -186,10 +189,12 @@ class SignupView(generic.FormView):
         )
 
         # Set up the various machine tags
-        for fieldname, (namespace, predicate) in \
-                MACHINETAGS_FROM_FIELDS.items():
-            if fieldname in form.cleaned_data and \
-                form.cleaned_data[fieldname].strip():
+        for fieldname, (namespace,
+                        predicate) in MACHINETAGS_FROM_FIELDS.items():
+            if (
+                fieldname in form.cleaned_data and
+                form.cleaned_data[fieldname].strip()
+            ):
                 value = form.cleaned_data[fieldname].strip()
                 person.add_machinetag(namespace, predicate, value)
 
@@ -288,7 +293,7 @@ class CountryView(CleverPaginator, generic.ListView):
             iso_code=self.kwargs['country_code'].upper()
         )
         self.all_people = self.country.djangoperson_set.select_related(
-                'country', 'user'
+            'country', 'user'
         ).order_by('user__first_name', 'user__last_name')
         return self.all_people
 

@@ -26,7 +26,8 @@ gone = lambda _: HttpResponseGone()
 
 admin.autodiscover()
 
-urlpatterns = patterns('',
+urlpatterns = patterns(
+    '',
     url(r'^admin/', include(admin.site.urls), name='admin'),
     url(r'^$', views.index, name='index'),
     url(r'^login/$', 'django.contrib.auth.views.login',
@@ -45,10 +46,11 @@ urlpatterns = patterns('',
     url(r'^static/img/.*', gone),
 
     #openid stuff
-    url(r'^openid/$', 'djangopeople.django_openidconsumer.views.begin', {
-        'sreg': 'email,nickname,fullname',
-        'redirect_to': '/openid/complete/',
-    }, name='openid_begin'),
+    url(
+        r'^openid/$', 'djangopeople.django_openidconsumer.views.begin', {
+            'sreg': 'email,nickname,fullname',
+            'redirect_to': '/openid/complete/',
+        }, name='openid_begin'),
     url(r'^openid/complete/$',
         'djangopeople.django_openidconsumer.views.complete',
         name='openid_complete'),

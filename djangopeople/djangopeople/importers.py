@@ -1,15 +1,20 @@
+import os
+
 from django.conf import settings
+from django.contrib.localflavor.us.us_states import STATE_CHOICES
 
 try:
-    from xml.etree import cElementTree as ET
+    from xml.etree import cElementTree as ElementTree
 except ImportError:
-    from elementtree import ElementTree as ET  # noqa
+    from elementtree import ElementTree
 
 from .models import Country, Region
 
+REVERSE_STATE_CHOICES = dict([(p[1], p[0]) for p in STATE_CHOICES])
+
 
 def import_countries(fp):
-    et = ET.parse(fp)
+    et = ElementTree.parse(fp)
 
     mapping = (
         # XML name, model field name, optional type conversion function
@@ -54,10 +59,6 @@ def import_us_states():
     Contains two files with shapes of the states in easy parse format - just
     need to parse and find max and min lat and lon to get bounding boxes.
     """
-    import os
-    from django.contrib.localflavor.us.us_states import STATE_CHOICES
-    REVERSE_STATE_CHOICES = dict([(p[1], p[0]) for p in STATE_CHOICES])
-
     # First collect all the segments
     s = open('djangopeople/data/st99_d00.dat').read()
     segments = [seg.strip() for seg in s.split('END') if seg.strip()]
