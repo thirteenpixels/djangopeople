@@ -1,6 +1,6 @@
-.. image:: https://secure.travis-ci.org/brutasse/djangopeople.png
+.. image:: https://travis-ci.org/brutasse/djangopeople.png?branch=master
    :alt: Build Status
-   :target: https://secure.travis-ci.org/brutasse/djangopeople
+   :target: https://travis-ci.org/brutasse/djangopeople
 
 This is the codebase behind what used to be djangopeople.net and now lives at
 people.djangoproject.com.
