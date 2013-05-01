@@ -5,6 +5,10 @@
 
 {% block nav_li_class_signup %} class="current"{% endblock %}
 
+{% block post_map_init %}
+	handleFormGeoElements(MAP);
+{% endblock %}
+
 {% block header%}
 	<h1>{% trans "Sign up as a Django Person" %}</h1>
 {% endblock %}
@@ -67,7 +71,7 @@
 </div>
 
 <div class="mapContainer major" id="mapWrapper">
-	<div id="gmap">&nbsp;</div>
+	<div id="map">&nbsp;</div>
 	<div id="crosshair"></div>
 </div>
 
