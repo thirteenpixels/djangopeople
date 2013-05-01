@@ -71,7 +71,7 @@ $(function() {
 	}
 
 	var MAP = new L.Map('map', options);
-	L.tileLayer('http://{s}.tile2.opencyclemap.org/transport/{z}/{x}/{y}.png', {
+	L.tileLayer('https://djangopeople-tiles-{s}.herokuapp.com/transport/{z}/{x}/{y}.png', {
 	    attribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, Imagery © <a href="http://www.thunderforest.com/">Thunderforest</a>',
 	    maxZoom: 18
 	}).addTo(MAP);
