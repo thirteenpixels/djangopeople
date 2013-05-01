@@ -53,10 +53,10 @@ Set a bunch of environment variables:
 * ``DJANGO_SETTINGS_MODULE`` (set it to ``djangopeople.settings``)
 * ``FROM_EMAIL``
 * ``API_PASSWORD``
+* ``CANONICAL_HOSTNAME`` (e.g. people.djangoproject.com)
 
 Optionally:
 
-* ``CANONICAL_HOSTNAME`` (e.g. people.djangoproject.com)
 * Add the redistogo addon
 
 First deploy::
