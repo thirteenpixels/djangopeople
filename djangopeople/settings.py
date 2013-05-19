@@ -10,7 +10,7 @@ TEST_RUNNER = 'discover_runner.DiscoverRunner'
 TEST_DISCOVER_TOP_LEVEL = os.path.join(OUR_ROOT, os.pardir)
 TEST_DISCOVERY_ROOT = os.path.join(TEST_DISCOVER_TOP_LEVEL, 'tests')
 
-DEBUG = os.environ.get('DEBUG', False)
+DEBUG = bool(os.environ.get('DEBUG', False))
 TEMPLATE_DEBUG = DEBUG
 
 # OpenID settings
@@ -20,8 +20,7 @@ LOGIN_URL = reverse_lazy('login')
 # Tagging settings
 FORCE_LOWERCASE_TAGS = True
 
-ADMINS = ()
-MANAGERS = ADMINS
+ADMINS = MANAGERS = ()
 
 DATABASES = {'default': dj_database_url.config()}
 
