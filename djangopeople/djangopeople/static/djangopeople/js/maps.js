@@ -21,15 +21,9 @@ var ShrinkMapControl = L.Control.extend({
 });
 
 
-var DJIcon = L.Icon.extend({
+var DJIcon = L.Icon.Default.extend({
     options: {
         iconUrl: STATIC_URL + 'djangopeople/img/green-bubble.png',
-        shadowUrl: STATIC_URL + 'djangopeople/img/green-bubble-shadow.png',
-        iconSize:     [32, 32],  // size of the icon
-        shadowSize:   [32, 32],  // size of the shadow
-        iconAnchor:   [16, 32],  // point of the icon which will correspond to marker's location
-        shadowAnchor: [10, 32],  // the same for the shadow
-        popupAnchor:  [0, -32]  // point from which the popup should open relative to the iconAnchor
     }
 });
 
