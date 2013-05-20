@@ -144,7 +144,8 @@ var DJMap = L.Map.extend({
         this.shrinkControl = new ShrinkMapControl().addTo(this);
 
         // Marker for the current profile, not clickable
-        new L.Marker(latlng, {icon: new DJIcon()}).addTo(this);
+        var icon = new DJIcon({iconUrl: STATIC_URL + 'djangopeople/img/gray-bubble.png'});
+        new L.Marker(latlng, {icon: icon}).addTo(this)._bringToFront();
         this.shrink(latlng);
     }
 
