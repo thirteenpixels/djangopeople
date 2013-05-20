@@ -61,7 +61,6 @@ $(function() {
 		var shrink = new L.LatLng(options.shrinklat, options.shrinklon);
 		delete options.shrinklat;
 		delete options.shrinklon;
-		console.log(shrink);
 	}
 
 	// Enable edition
@@ -70,7 +69,7 @@ $(function() {
 		delete options.edit;
 	}
 
-	var MAP = new L.Map('map', options);
+	var MAP = new DJMap('map', options);
 	L.tileLayer('https://djangopeople-tiles-{s}.herokuapp.com/transport/{z}/{x}/{y}.png', {
 	    attribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, Imagery © <a href="http://www.thunderforest.com/">Thunderforest</a>',
 	    maxZoom: 18
@@ -78,11 +77,11 @@ $(function() {
 
 	// Plot the people as markers
 	if (typeof people != 'undefined' && people.length > 0) {
-		plotPeopleOnMap(people, MAP);
+		MAP.plotPeople(people);
 	}
 
 	if (shrink) {
-		shrinkMap(MAP, shrink);
+		MAP.shrinkable(shrink);
 	}
 
 	if (edit) {
