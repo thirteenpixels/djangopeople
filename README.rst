@@ -13,11 +13,6 @@ first!
 Hacking
 -------
 
-You need `Daemontools`_ and `Foreman`_ installed.
-
-.. _Daemontools: http://cr.yp.to/daemontools.html
-.. _Foreman: https://github.com/ddollar/foreman
-
 ::
 
     git clone git@github.com:brutasse/djangopeople.git
@@ -31,7 +26,7 @@ Check ``env/DATABASE_URL`` to configure a local DB.
 Then::
 
     make db
-    make run
+    python manage.py runserver
 
 The development server is now running on http://localhost:8000.
 
@@ -61,15 +56,11 @@ Optionally:
 
 First deploy::
 
-    git push heroku master
-    heroku run django-admin.py syncdb --noinput
-    heroku run django-admin.py collectstatic
-    heroku run django-admin.py fix_counts
+    make initialdeploy
 
 Subsequent deploys::
 
-    git push heroku master
-    heroku run django-admin.py collectstatic
+    make deploy
 
 -------
 
