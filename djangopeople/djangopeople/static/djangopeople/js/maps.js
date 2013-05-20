@@ -23,7 +23,7 @@ var ShrinkMapControl = L.Control.extend({
 
 var DJIcon = L.Icon.Default.extend({
     options: {
-        iconUrl: STATIC_URL + 'djangopeople/img/green-bubble.png',
+        iconUrl: STATIC_URL + 'djangopeople/img/green-bubble.png'
     }
 });
 
