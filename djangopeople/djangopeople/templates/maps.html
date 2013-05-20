@@ -69,23 +69,23 @@ $(function() {
 		delete options.edit;
 	}
 
-	var MAP = new DJMap('map', options);
+	var map = new DJMap('map', options);
 	L.tileLayer('https://djangopeople-tiles-{s}.herokuapp.com/transport/{z}/{x}/{y}.png', {
 	    attribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, Imagery © <a href="http://www.thunderforest.com/">Thunderforest</a>',
 	    maxZoom: 18
-	}).addTo(MAP);
+	}).addTo(map);
 
 	// Plot the people as markers
 	if (typeof people != 'undefined' && people.length > 0) {
-		MAP.plotPeople(people);
+		map.plotPeople(people);
 	}
 
 	if (shrink) {
-		MAP.shrinkable(shrink);
+		map.shrinkable(shrink);
 	}
 
 	if (edit) {
-		handleFormGeoElements(MAP);
+		handleFormGeoElements(map);
 	}
 });
 </script>
