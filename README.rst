@@ -2,20 +2,20 @@
    :alt: Build Status
    :target: https://travis-ci.org/brutasse/djangopeople
 
-This is the codebase behind what used to be djangopeople.net and now lives at
-people.djangoproject.com.
+This is the codebase behind what lives at
+http://infinitypeople.herokuapp.com/.
 
 If you want to add features or make big changes, please `create a new issue`_
 first!
 
-.. _create a new issue: https://github.com/brutasse/djangopeople/issues/new
+.. _create a new issue: https://github.com/thirteenpixels/djangopeople/issues/new
 
 Hacking
 -------
 
 ::
 
-    git clone git@github.com:brutasse/djangopeople.git
+    git clone git@github.com:thirteenpixels/djangopeople.git
     cd djangopeople
     mkvirtualenv -p python2 djangopeople
     pip install -r requirements.txt
