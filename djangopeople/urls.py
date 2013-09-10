@@ -67,14 +67,6 @@ urlpatterns = patterns(
 
     url(r'^search/$', views.search, name='search'),
 
-    url(r'^skills/(?P<tag>.*)/$', views.skill, name='skill_detail'),
-    url(r'^skills/$', views.skill_cloud, name='skill_cloud'),
-
-    url(r'^api/irc_lookup/(.*?)/$', api.irc_lookup, name='irc_lookup'),
-    url(r'^api/irc_spotted/(.*?)/$', api.irc_spotted, name='irc_spotted'),
-    url(r'^irc/active/$', views.irc_active, name='irc_active'),
-    url(r'^irc/(.*?)/$', api.irc_redirect, name='irc_redirect'),
-
     (r'^uk/$', perm_redirect('/gb/')),
 
     url(r'^(?P<country_code>[a-z]{2})/$',
@@ -82,15 +74,6 @@ urlpatterns = patterns(
 
     url(r'^(?P<country_code>[a-z]{2})/sites/$',
         views.country_sites, name='country_sites'),
-
-    url(r'^(?P<country_code>[a-z]{2})/skills/$',
-        views.country_skill_cloud, name='country_skill_cloud'),
-
-    url(r'^(?P<country_code>[a-z]{2})/skills/(?P<tag>.*)/$',
-        views.country_skill, name='country_skill'),
-
-    url(r'^(?P<country_code>[a-z]{2})/looking-for/(?P<looking_for>freelance|full-time)/$',  # noqa
-        views.country_looking_for, name='country_looking_for'),
 
     url(r'^(?P<country_code>[a-z]{2})/(?P<region_code>\w+)/$',
         views.region, name='country_region'),
@@ -100,8 +83,6 @@ urlpatterns = patterns(
 
     url(r'^(?P<username>[a-z0-9]{3,})/$', views.profile, name='user_profile'),
     url(r'^(?P<username>[a-z0-9]{3,})/bio/$', views.edit_bio, name='edit_bio'),
-    url(r'^(?P<username>[a-z0-9]{3,})/skills/$',
-        views.edit_skills, name='edit_skills'),
 
     url(r'^(?P<username>[a-z0-9]{3,})/password/$',
         views.edit_password, name='edit_password'),

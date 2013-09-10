@@ -20,7 +20,7 @@ from tagging.utils import calculate_cloud, get_tag
 from . import utils
 from .constants import (MACHINETAGS_FROM_FIELDS, IMPROVIDERS_DICT,
                         SERVICES_DICT)
-from .forms import (SkillsForm, SignupForm, PortfolioForm, BioForm,
+from .forms import (SignupForm, PortfolioForm, BioForm,
                     LocationForm, FindingForm, AccountForm, PasswordForm,
                     DeletionRequestForm, AccountDeletionForm)
 from .models import DjangoPerson, Country, User, Region, PortfolioSite
@@ -198,8 +198,6 @@ class SignupView(generic.FormView):
                 value = form.cleaned_data[fieldname].strip()
                 person.add_machinetag(namespace, predicate, value)
 
-        # Finally, set their skill tags
-        person.skilltags = form.cleaned_data['skilltags']
 
         # Log them in and redirect to their profile page
         user.backend = 'django.contrib.auth.backends.ModelBackend'
@@ -422,7 +420,6 @@ class ProfileView(generic.DetailView):
 
         context.update({
             'is_owner': self.request.user.username == self.kwargs['username'],
-            'skills_form': SkillsForm(instance=self.object),
             'mtags': mtags,
             'ims': ims,
             'services': services,
@@ -474,12 +471,6 @@ class EditAccountView(DjangoPersonEditViewBase):
 edit_account = must_be_owner(EditAccountView.as_view())
 
 
-class EditSkillsView(DjangoPersonEditViewBase):
-    form_class = SkillsForm
-    template_name = 'edit_skills.html'
-edit_skills = must_be_owner(EditSkillsView.as_view())
-
-
 class EditPassword(generic.UpdateView):
     form_class = PasswordForm
     template_name = 'edit_password.html'
@@ -509,41 +500,6 @@ class EditLocationView(DjangoPersonEditViewBase):
         })
         return initial
 edit_location = must_be_owner(EditLocationView.as_view())
-
-
-class SkillCloudView(generic.TemplateView):
-    template_name = 'skills.html'
-
-    def get_context_data(self, **kwargs):
-        tags = DjangoPerson.skilltags.cloud(steps=5)
-        calculate_cloud(tags, 5)
-        context = super(SkillCloudView, self).get_context_data(**kwargs)
-        context.update({
-            'tags': tags,
-        })
-        return context
-skill_cloud = SkillCloudView.as_view()
-
-
-class CountrySkillCloudView(generic.DetailView):
-    context_object_name = 'country'
-    template_name = 'skills.html'
-
-    def get_object(self):
-        return get_object_or_404(Country,
-                                 iso_code=self.kwargs['country_code'].upper())
-
-    def get_context_data(self, **kwargs):
-        context = super(CountrySkillCloudView, self).get_context_data(**kwargs)
-        tags = Tag.objects.cloud_for_model(DjangoPerson, steps=5, filters={
-            'country': self.object,
-        })
-        calculate_cloud(tags, 5)
-        context.update({
-            'tags': tags,
-        })
-        return context
-country_skill_cloud = CountrySkillCloudView.as_view()
 
 
 class TaggedObjectList(generic.ListView):
@@ -581,34 +537,6 @@ class TaggedObjectList(generic.ListView):
             )
         ctx = super(TaggedObjectList, self).get_context_data(**kwargs)
         return ctx
-
-
-class Skill(TaggedObjectList):
-    model = DjangoPerson
-    related_tags = True
-    template_name = 'skill.html'
-    context_object_name = 'people_list'
-    select_related = ['user', 'country']
-skill = Skill.as_view()
-
-
-class CountrySkill(TaggedObjectList):
-    model = DjangoPerson
-    related_tags = True
-    template_name = 'skill.html'
-    context_object_name = 'people_list'
-
-    def get_context_data(self, **kwargs):
-        kwargs['country'] = Country.objects.get(
-            iso_code=self.kwargs['country_code'].upper()
-        )
-        return super(CountrySkill, self).get_context_data(**kwargs)
-
-    def get_extra_filter_args(self):
-        filters = super(CountrySkill, self).get_extra_filter_args()
-        filters['country__iso_code'] = self.kwargs['country_code'].upper()
-        return filters
-country_skill = CountrySkill.as_view()
 
 
 class CountryLookingForView(generic.ListView):

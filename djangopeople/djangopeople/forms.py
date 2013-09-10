@@ -157,24 +157,6 @@ class SignupForm(PopulateChoices, forms.Form):
             ('private', _('Only logged-in users can see my IM details')),
         ), widget=forms.RadioSelect, initial='private'
     )
-    privacy_irctrack = forms.ChoiceField(
-        label=_('IRC tracking'),
-        choices=(
-            ('public', _('Keep track of the last time I was seen on IRC '
-                         '(requires your IRC nick)')),
-            ('private', _("Don't record the last time I was seen on IRC")),
-        ), widget=forms.RadioSelect, initial='public'
-    )
-    looking_for_work = forms.ChoiceField(
-        label=_('Looking for work?'),
-        choices=(
-            ('', _('Not looking for work at the moment')),
-            ('freelance', _('Looking for freelance work')),
-            ('full-time', _('Looking for full-time work')),
-        ), required=False
-    )
-
-    skilltags = TagField(label=_('Your skills'), required=False)
 
     # Fields used to create machinetags
 
@@ -239,23 +221,6 @@ class SignupForm(PopulateChoices, forms.Form):
         return self.cleaned_data['region']
 
     clean_location_description = not_in_the_atlantic
-
-
-class SkillsForm(forms.ModelForm):
-    skills = TagField(label=_('Change skills'), required=False)
-
-    class Meta:
-        model = DjangoPerson
-        fields = ()
-
-    def __init__(self, *args, **kwargs):
-        super(SkillsForm, self).__init__(*args, **kwargs)
-        self.initial = {
-            'skills': edit_string_for_tags(self.instance.skilltags),
-        }
-
-    def save(self):
-        self.instance.skilltags = self.cleaned_data['skills']
 
 
 class BioForm(forms.ModelForm):
