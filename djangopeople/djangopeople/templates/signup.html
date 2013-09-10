@@ -137,20 +137,6 @@
 			{% with form.privacy_im as field %}
 				{% include "includes/field.html" %}
 			{% endwith %}
-			{% with form.privacy_irctrack as field %}
-				{% include "includes/field.html" %}
-			{% endwith %}
-		{% endwith %}
-	</fieldset>
-
-	<h2>{% trans "5. Your skills and interests" %}</h2>
-	<fieldset>
-		<p class="help">{% trans "Tag yourself with your particular skills and interests, e.g. postgresql, nginx, css. Separate them with commas; spaces are allowed." %}</p>
-		{% with form.skilltags as field %}
-			{% include "includes/field.html" %}
-		{% endwith %}
-		{% with form.looking_for_work as field %}
-			{% include "includes/field.html" %}
 		{% endwith %}
 	</fieldset>
 

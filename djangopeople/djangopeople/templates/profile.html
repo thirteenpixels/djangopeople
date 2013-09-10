@@ -72,16 +72,7 @@
 					{% for tag in person.skilltags %}
 						<li><a rel="tag" class="skill" href="{% url "skill_detail" tag %}">{{ tag }}</a></li>
 					{% endfor %}
-					{% if is_owner %}
-						<li class="edit"><a href="{% url "edit_skills" user.username %}">{% trans "(edit skills)" %}</a></li>
-					{% endif %}
-				</ul>
-				{% if is_owner %}
-					<form action="{% url "edit_skills" person.user.username %}" method="POST" id="editSkills">{% csrf_token %}
-						<p>{{ skills_form.skills }} <input type="submit" value="{% trans "Save" %}"></p>
-					</form>
-				{% endif %}
-				{% if mtags.profile.looking_for_work %}<p class="prominent">{% blocktrans with type=mtags.profile.looking_for_work %}Looking for <strong>{{ type }}</strong> work{% endblocktrans %}</p>{% endif %}
+				</ul>								
 			</div>
 		{% endif %}
 		{% if show_finding %}
@@ -107,18 +98,6 @@
 				{% endif %}
 			</div>
 		{% endif %}
-		{% with person.portfoliosite_set.all as portfolio_set %}
-			{% if portfolio_set %}
-				<h2>{% blocktrans with name=person.user.first_name %}{{ name }}'s Django portfolio{% endblocktrans %}{% if is_owner %} <a class="edit" href="{% url "edit_portfolio" user.username %}">{% trans "(edit)" %}</a>{% endif %}</h2>
-				<p class="help">{% blocktrans with name=person.user.first_name %}Django projects {{ name }} has contributed to{% endblocktrans %}</p>
-				<ul class="siteList">
-					{% for site in portfolio_set %}
-						<li><a href="{{ site.url }}" class="url" rel="nofollow"><cite>{{ site.title }}</cite></a></li>
-					{% endfor %}
-				</ul>
-			{% else %}{% if is_owner %}<p>{% url "edit_portfolio" user.username as portfolio_url %}{% blocktrans %}<a href="{{ portfolio_url }}">Add some sites</a> to your portfolio{% endblocktrans %}</p>{% endif %}
-			{% endif %}
-		{% endwith %}
 	</div>
 
 	<div class="secondary">
