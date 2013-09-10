@@ -346,22 +346,6 @@ class FindingForm(forms.ModelForm):
             ('private', 'Only logged-in users can see my IM details'),
         ), widget=forms.RadioSelect, initial='private'
     )
-    privacy_irctrack = forms.ChoiceField(
-        label=_('IRC tracking'),
-        choices=(
-            ('public', ('Keep track of the last time I was seen on IRC '
-                        '(requires your IRC nick)')),
-            ('private', "Don't record the last time I was seen on IRC"),
-        ), widget=forms.RadioSelect, initial='public'
-    )
-    looking_for_work = forms.ChoiceField(
-        label=_('Looking for work?'),
-        choices=(
-            ('', 'Not looking for work at the moment'),
-            ('freelance', 'Looking for freelance work'),
-            ('full-time', 'Looking for full-time work'),
-        ), required=False
-    )
 
     def clean_email(self):
         email = self.cleaned_data['email']
