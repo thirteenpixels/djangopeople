@@ -34,9 +34,9 @@
 			</a>
 		{% endif %}
 		{% if is_paginated %}
-			{% blocktrans count counter=paginator.count %}{{ counter }} Django person{% plural %}{{ counter }} Django people{% endblocktrans %}
+			{% blocktrans count counter=paginator.count %}{{ counter }} Infinity player{% plural %}{{ counter }} players{% endblocktrans %}
 		{% else %}
-			{% blocktrans count counter=people_list.count %}{{ counter }} Django person{% plural %}{{ counter }} Django people{% endblocktrans %}
+			{% blocktrans count counter=people_list.count %}{{ counter }} Infinity player{% plural %}{{ counter }} players{% endblocktrans %}
 		{% endif %}
 	</p>
 {% endblock %}
@@ -48,18 +48,6 @@
 {% endblock %}
 
 	{% block content %}
-	{% with country.countrysite_set.all as sites %}
-	{% if sites %}
-	<div class="highlight">
-		<h2>{% blocktrans %}Django community sites in {{ country }}{% endblocktrans %}</h2>
-		<ul>
-		{% for site in sites %}
-			<li><a href="{{ site.url }}" class="ext">{{ site.title }}</a></li>
-		{% endfor %}
-		</ul>
-	</div>
-	{% endif %}
-	{% endwith %}
 	{% if is_paginated %}
 		<div class="paginator highlight">
 			<div class="info">{% blocktrans with num=page_obj.number total=paginator.num_pages %}Page {{ num }} of {{ total }}{% endblocktrans %}</div>

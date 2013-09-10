@@ -93,17 +93,3 @@ window.onload = function() {
     var peopleArray = getPeopleArray(nearby_people);
 
 };
-
-jQuery(function($) {
-    $('#editSkills').hide();
-    $('ul.tags li.edit a').toggle(
-        function() {
-            $('#editSkills').show();
-            return false;
-        },
-        function() {
-            $('#editSkills').hide();
-            return false;
-        }
-        );
-});
