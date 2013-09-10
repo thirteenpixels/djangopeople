@@ -1,7 +1,3 @@
-.. image:: https://travis-ci.org/brutasse/djangopeople.png?branch=master
-   :alt: Build Status
-   :target: https://travis-ci.org/brutasse/djangopeople
-
 This is the codebase behind what lives at
 http://infinitypeople.herokuapp.com/.
 
