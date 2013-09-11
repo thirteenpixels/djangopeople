@@ -2,11 +2,12 @@ from django.utils.translation import ugettext as _
 
 SERVICES = (
     # shortname, name, icon
+    ('official', 'Infinity Forum', ''),
+    ('datasphere', 'Datasphere', ''),
     ('flickr', 'Flickr', 'img/services/flickr.png'),
     ('twitter', 'Twitter', 'img/services/twitter.png'),
     ('facebook', 'Facebook', 'img/services/facebook.png'),
     ('googleplus', 'Google+', 'img/services/googleplus.png'),
-    ('linkedin', 'LinkedIn', 'img/services/linkedin.png'),
 )
 SERVICES_DICT = dict([(r[0], r) for r in SERVICES])
 

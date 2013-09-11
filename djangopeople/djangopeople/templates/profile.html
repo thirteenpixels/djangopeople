@@ -74,7 +74,7 @@
 		{% endif %}
 		{% if show_finding %}
 			<div class="finding">
-				<h2>{% blocktrans with username=person.user.username %}Finding {{ name }}{% endblocktrans %}{% if is_owner %} <a class="edit" href="{% url "edit_finding" user.username %}">{% trans "(edit)" %}</a>{% endif %}</h2>
+				<h2>{% blocktrans with username=person.user.username %}You can find {{ username }} on{% endblocktrans %}{% if is_owner %} <a class="edit" href="{% url "edit_finding" user.username %}">{% trans "(edit)" %}</a>{% endif %}</h2>
 				{% if privacy.show_email %}
 					<p><strong>{% trans "email:" %}</strong> <a href="mailto:{{ person.user.email }}" class="mail email">{{ person.user.email }}</a></p>
 				{% endif %}
