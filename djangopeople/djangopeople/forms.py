@@ -113,8 +113,6 @@ class SignupForm(PopulateChoices, forms.Form):
     # Fields for creating a User object
     username = forms.RegexField('^[a-zA-Z0-9]+$', label=_('Username'),
                                 min_length=3, max_length=30)
-    first_name = forms.CharField(label=_('First name'), max_length=30)
-    last_name = forms.CharField(label=_('Last name'), max_length=30)
     email = forms.EmailField(label=_('E-mail'))
     password1 = forms.CharField(label=_('Password'),
                                 widget=forms.PasswordInput, required=False)
@@ -319,8 +317,6 @@ class FindingForm(forms.ModelForm):
                 'field': BoundField(self, field, 'im_' + shortname),
             })
 
-    first_name = forms.CharField(label=_('First name'))
-    last_name = forms.CharField(label=_('Last name'))
     email = forms.EmailField(label=_('E-mail'))
     blog = forms.URLField(label=_('Blog URL'), required=False)
     privacy_search = forms.ChoiceField(
@@ -358,8 +354,6 @@ class FindingForm(forms.ModelForm):
     def save(self):
         user = self.instance.user
         user.email = self.cleaned_data['email']
-        user.first_name = self.cleaned_data['first_name']
-        user.last_name = self.cleaned_data['last_name']
         user.save()
 
         for fieldname, (namespace,
