@@ -7,7 +7,7 @@ from django.http import HttpResponse, HttpResponseGone
 from django.shortcuts import redirect
 from django.template.loader import add_to_builtins
 
-from .djangopeople import views, api
+from .djangopeople import views
 
 add_to_builtins('django.templatetags.i18n')
 add_to_builtins('django.templatetags.future')
