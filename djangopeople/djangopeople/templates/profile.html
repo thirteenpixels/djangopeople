@@ -46,9 +46,8 @@
 {% endaddtoblock %}
 
 	<img src="{% gravatar person.user.email 83 %}" alt="{{ person }}" class="main photo">
-	<h1 class="fn n">
-		<span class="given-name">{{ person.user.first_name }}</span>
-		<span class="family-name">{{ person.user.last_name }}</span>
+	<h1 class="n">
+		<span class="given-name">{{ person.user.username }}</span>
 	</h1>
 	<p class="meta adr">
 		<a href="{% url "country_detail" person.country.iso_code|lower %}" class="nobg">
@@ -77,7 +76,7 @@
 		{% endif %}
 		{% if show_finding %}
 			<div class="finding">
-				<h2>{% blocktrans with name=person.user.first_name %}Finding {{ name }}{% endblocktrans %}{% if is_owner %} <a class="edit" href="{% url "edit_finding" user.username %}">{% trans "(edit)" %}</a>{% endif %}</h2>
+				<h2>{% blocktrans with username=person.user.username %}Finding {{ name }}{% endblocktrans %}{% if is_owner %} <a class="edit" href="{% url "edit_finding" user.username %}">{% trans "(edit)" %}</a>{% endif %}</h2>
 				{% if privacy.show_email %}
 					<p><strong>{% trans "email:" %}</strong> <a href="mailto:{{ person.user.email }}" class="mail email">{{ person.user.email }}</a></p>
 				{% endif %}
@@ -102,13 +101,13 @@
 
 	<div class="secondary">
 		{% if nearest_people %}
-			<h2>{% blocktrans with name=person.user.first_name %}People near {{ name }}{% endblocktrans %}</h2>
+			<h2>{% blocktrans with name=person.user.username %}People near {{ name }}{% endblocktrans %}</h2>
 
 			<ul class="detailsList">
 				{% for person in nearest_people %}
 					<li>
 						<img src="{% gravatar person.user.email 40 %}" alt="{{ person }}" class="main">
-						<h3><a href="{{ person.get_absolute_url }}">{{ person }}</a></h3>
+						<h3><a href="{{ person.get_absolute_url }}">{{ person.user.username }}</a></h3>
 						<p class="meta"><a href="{% url "country_detail" person.country.iso_code|lower %}" class="nobg"><img src="{% static person.country.flag_url %}" alt="{{ person.country }}" title="{{ person.country }}"></a> {{ person.location_description }}<br>{% blocktrans count counter=person.distance_in_miles %}{{ counter }} mile away{% plural %}{{ counter }} miles away{% endblocktrans %}</p>
 					</li>
 				{% endfor %}
