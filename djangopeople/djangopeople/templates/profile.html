@@ -106,7 +106,13 @@
 					<li>
 						<img src="{% gravatar person.user.email 40 %}" alt="{{ person }}" class="main">
 						<h3><a href="{{ person.get_absolute_url }}">{{ person.user.username }}</a></h3>
-						<p class="meta"><a href="{% url "country_detail" person.country.iso_code|lower %}" class="nobg"><img src="{% static person.country.flag_url %}" alt="{{ person.country }}" title="{{ person.country }}"></a> {{ person.location_description }}<br>{% blocktrans count counter=person.distance_in_miles %}{{ counter }} mile away{% plural %}{{ counter }} miles away{% endblocktrans %}</p>
+						<p class="meta"><a href="{% url "country_detail" person.country.iso_code|lower %}" class="nobg"><img src="{% static person.country.flag_url %}" alt="{{ person.country }}" title="{{ person.country }}"></a> {{ person.location_description }}<br>
+						{% if person.country.iso_code|lower == 'us' %}
+							{% blocktrans count counter=person.distance_in_miles %}{{ counter }} mile away{% plural %}{{ counter }} miles away{% endblocktrans %}</p>
+						{% else %}
+							{% blocktrans count counter=person.distance_in_kilometers %}{{ counter }} kilometer away{% plural %}{{ counter }} kilometers away{% endblocktrans %}</p>
+
+						{% endif %}
 					</li>
 				{% endfor %}
 			</ul>

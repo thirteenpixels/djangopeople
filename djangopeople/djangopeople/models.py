@@ -180,6 +180,11 @@ class DjangoPerson(models.Model):
                 (person.latitude, person.longitude)
             ).miles)
 
+            person.distance_in_kilometers = int(distance.VincentyDistance(
+                (self.latitude, self.longitude),
+                (person.latitude, person.longitude)
+            ).kilometers)
+
         # Return the nearest X
         people.sort(key=lambda x: x.distance_in_miles)
         return people[:num]
