@@ -159,13 +159,6 @@ class DjangoPerson(models.Model):
     def longitude_str(self):
         return str(self.longitude)
 
-    def irc_nick(self):
-        try:
-            return self.machinetags.filter(namespace='im',
-                                           predicate='django')[0].value
-        except IndexError:
-            return _('<none>')
-
     def get_nearest(self, num=5):
         "Returns the nearest X people, but only within the same continent"
         # TODO: Add caching
@@ -208,7 +201,7 @@ class DjangoPerson(models.Model):
             return self.location_description
 
     def __unicode__(self):
-        return u'%s' % self.user.get_full_name()
+        return u'%s' % self.user.username
 
     def get_absolute_url(self):
         return reverse('user_profile', args=[self.user.username])
@@ -225,13 +218,8 @@ class DjangoPerson(models.Model):
             self.region.save()
 
     class Meta:
-        verbose_name = _('Django person')
-        verbose_name_plural = _('Django people')
-
-    def irc_tracking_allowed(self):
-        return not self.machinetags.filter(
-            namespace='privacy', predicate='irctrack', value='private',
-        ).count()
+        verbose_name = _('Infinity person')
+        verbose_name_plural = _('Infinity people')
 
 tagging.register(DjangoPerson, tag_descriptor_attr='skilltags',
                  tagged_item_manager_attr='skilltagged')

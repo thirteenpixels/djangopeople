@@ -1,11 +1,9 @@
 {% extends "maps.html" %}
 {% load staticfiles gravatar sekizai_tags %}
 
-{% block title%}{{ person }} |{% endblock %}
+{% block title%}{{ person.user.username }} |{% endblock %}
 
 {% block nav_li_class_profile %}{% if is_owner %} class="current"{% endif %}{% endblock %}
-
-{% block bodymeta %} class="vcard hresume"{% endblock %}
 
 {% block header %}
 
