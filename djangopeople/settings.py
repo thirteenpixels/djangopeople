@@ -185,13 +185,13 @@ if 'CANONICAL_HOSTNAME' in os.environ:
     CANONICAL_HOSTNAME = os.environ['CANONICAL_HOSTNAME']
     ALLOWED_HOSTS = [CANONICAL_HOSTNAME]
 
-SERVER_EMAIL = DEFAULT_FROM_EMAIL = os.environ['FROM_EMAIL']
 if DEBUG:
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 else:
     EMAIL_BACKEND = 'postmark.django_backend.EmailBackend'
     POSTMARK_API_KEY = os.environ['POSTMARK_API_KEY']
     POSTMARK_SENDER = os.environ['POSTMARK_SENDER']
+    SERVER_EMAIL = DEFAULT_FROM_EMAIL = POSTMARK_SENDER
     AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY']
     AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_KEY']
     AWS_STORAGE_BUCKET_NAME = os.environ['AWS_BUCKET_NAME']
