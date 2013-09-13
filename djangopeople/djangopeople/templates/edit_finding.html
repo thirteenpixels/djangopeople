@@ -14,6 +14,11 @@
 		<fieldset>
 			<div class="fieldWrapper">
 				{{ form.email.errors }}
+				<label for="id_username">{% trans "Username *" %}</label>
+				{{ form.username }}
+			</div>			
+			<div class="fieldWrapper">
+				{{ form.email.errors }}
 				<label for="id_email">{% trans "E-mail *" %}</label>
 				{{ form.email }}
 			</div>

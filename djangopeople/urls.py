@@ -90,9 +90,6 @@ urlpatterns = patterns(
     url(r'^(?P<username>[a-z0-9]{3,})/account/$',
         views.edit_account, name='edit_account'),
 
-    url(r'^(?P<username>[a-z0-9]{3,})/portfolio/$',
-        views.edit_portfolio, name='edit_portfolio'),
-
     url(r'^(?P<username>[a-z0-9]{3,})/location/$',
         views.edit_location, name='edit_location'),
 

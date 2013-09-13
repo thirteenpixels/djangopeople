@@ -315,6 +315,7 @@ class FindingForm(forms.ModelForm):
             })
 
     email = forms.EmailField(label=_('E-mail'))
+    username = forms.CharField(label=_('Username'))
     blog = forms.URLField(label=_('Blog URL'), required=False)
     privacy_search = forms.ChoiceField(
         label=_('Search visibility'),
@@ -348,9 +349,29 @@ class FindingForm(forms.ModelForm):
             raise forms.ValidationError(_('That e-mail is already in use'))
         return email
 
+    def clean_username(self):
+        already_taken = _('That username is unavailable')
+        username = self.cleaned_data['username']
+        # Skip validation if they don't change the username
+        if username != self.initial['username']:
+            # No reserved usernames, or anything that looks like a 4 digit year
+            if username in RESERVED_USERNAMES or (len(username) == 4 and
+                                                  username.isdigit()):
+                raise forms.ValidationError(already_taken)
+
+            try:
+                User.objects.get(username=username)
+            except User.DoesNotExist:
+                pass
+            else:
+                raise forms.ValidationError(already_taken)
+
+        return username
+
     def save(self):
         user = self.instance.user
         user.email = self.cleaned_data['email']
+        user.username = self.cleaned_data['username']
         user.save()
 
         for fieldname, (namespace,
@@ -364,65 +385,6 @@ class FindingForm(forms.ModelForm):
             ):
                 value = self.cleaned_data[fieldname].strip()
                 self.instance.add_machinetag(namespace, predicate, value)
-
-
-class PortfolioForm(forms.ModelForm):
-    class Meta:
-        model = DjangoPerson
-        fields = ()
-
-    def __init__(self, *args, **kwargs):
-        # Dynamically add the fields for IM providers / external services
-        super(PortfolioForm, self).__init__(*args, **kwargs)
-        self.portfolio_fields = []
-        self.initial = {}
-        num = 1
-        for site in kwargs['instance'].portfoliosite_set.all():
-            self.initial['title_%d' % num] = site.title
-            self.initial['url_%d' % num] = site.url
-            num += 1
-
-        # Add fields
-        for i in range(1, num + 3):
-            url_field = forms.URLField(
-                max_length=255, required=False, label=_('URL %d') % i
-            )
-            title_field = forms.CharField(
-                max_length=100, required=False, label=_('Title %d') % i
-            )
-            self.fields['title_%d' % i] = title_field
-            self.fields['url_%d' % i] = url_field
-            self.portfolio_fields.append({
-                'title_field': BoundField(self, title_field, 'title_%d' % i),
-                'url_field': BoundField(self, url_field, 'url_%d' % i),
-                'title_id': 'id_title_%d' % i,
-                'url_id': 'id_url_%d' % i,
-            })
-
-        # Add custom validator for each url field
-        for key in [k for k in self.fields if k.startswith('url_')]:
-            setattr(self, 'clean_%s' % key, make_validator(key, self))
-
-    def save(self):
-        self.instance.portfoliosite_set.all().delete()
-        for key in [
-            k for k in self.cleaned_data.keys() if k.startswith('title_')
-        ]:
-            title = self.cleaned_data[key]
-            url = self.cleaned_data[key.replace('title_', 'url_')]
-            if title.strip() and url.strip():
-                self.instance.portfoliosite_set.create(title=title, url=url)
-
-
-def make_validator(key, form):
-    def check():
-        if (
-            form.cleaned_data.get(key.replace('url_', 'title_')) and
-            not form.cleaned_data.get(key)
-        ):
-            raise forms.ValidationError(_('You need to provide a URL'))
-        return form.cleaned_data.get(key)
-    return check
 
 
 class PasswordForm(forms.ModelForm):

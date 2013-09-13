@@ -15,12 +15,12 @@ from django.views import generic
 
 from password_reset.views import Recover
 from tagging.models import Tag, TaggedItem
-from tagging.utils import calculate_cloud, get_tag
+from tagging.utils import get_tag
 
 from . import utils
 from .constants import (MACHINETAGS_FROM_FIELDS, IMPROVIDERS_DICT,
                         SERVICES_DICT)
-from .forms import (SignupForm, PortfolioForm, BioForm,
+from .forms import (SignupForm, BioForm,
                     LocationForm, FindingForm, AccountForm, PasswordForm,
                     DeletionRequestForm, AccountDeletionForm)
 from .models import DjangoPerson, Country, User, Region, PortfolioSite
@@ -195,7 +195,6 @@ class SignupView(generic.FormView):
             ):
                 value = form.cleaned_data[fieldname].strip()
                 person.add_machinetag(namespace, predicate, value)
-
 
         # Log them in and redirect to their profile page
         user.backend = 'django.contrib.auth.backends.ModelBackend'
@@ -445,6 +444,7 @@ class EditFindingView(DjangoPersonEditViewBase):
     def get_initial(self):
         mtags = tagdict(self.object.machinetags.all())
         initial = {
+            'username': self.object.user.username,
             'email': self.object.user.email,
             'first_name': self.object.user.first_name,
             'last_name': self.object.user.last_name,
@@ -454,13 +454,11 @@ class EditFindingView(DjangoPersonEditViewBase):
                 MACHINETAGS_FROM_FIELDS.items():
             initial[fieldname] = mtags[namespace][predicate]
         return initial
+
+    def get_success_url(self):
+        return reverse('user_profile', args=[self.request.POST['username']])
+
 edit_finding = must_be_owner(EditFindingView.as_view())
-
-
-class EditPortfolioView(DjangoPersonEditViewBase):
-    form_class = PortfolioForm
-    template_name = 'edit_portfolio.html'
-edit_portfolio = must_be_owner(EditPortfolioView.as_view())
 
 
 class EditAccountView(DjangoPersonEditViewBase):
