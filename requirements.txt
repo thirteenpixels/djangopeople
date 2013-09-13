@@ -20,3 +20,4 @@ pytz==2013b
 raven==1.9.1
 redis==2.7.5
 simplejson==2.6.1
+python-postmark

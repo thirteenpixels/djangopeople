@@ -9,9 +9,6 @@ from django.forms.widgets import PasswordInput
 from django.template import loader
 from django.utils.translation import ugettext_lazy as _
 
-from tagging.forms import TagField
-from tagging.utils import edit_string_for_tags
-
 from .constants import SERVICES, IMPROVIDERS, MACHINETAGS_FROM_FIELDS
 from .groupedselect import GroupedChoiceField
 from .models import DjangoPerson, Country, Region, User, RESERVED_USERNAMES
@@ -174,7 +171,7 @@ class SignupForm(PopulateChoices, forms.Form):
 
     def clean_username(self):
         already_taken = _('That username is unavailable')
-        username = self.cleaned_data['username'].lower()
+        username = self.cleaned_data['username']
 
         # No reserved usernames, or anything that looks like a 4 digit year
         if username in RESERVED_USERNAMES or (len(username) == 4 and
