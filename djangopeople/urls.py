@@ -81,31 +81,31 @@ urlpatterns = patterns(
     url(r'^profile/', views.redirect_to_logged_in_user_profile,
         name='redirect_to_logged_in_user_profile'),
 
-    url(r'^(?P<username>[a-z0-9]{3,})/$', views.profile, name='user_profile'),
-    url(r'^(?P<username>[a-z0-9]{3,})/bio/$', views.edit_bio, name='edit_bio'),
+    url(r'^(?P<username>[A-Za-z0-9]{3,})/$', views.profile, name='user_profile'),
+    url(r'^(?P<username>[A-Za-z0-9]{3,})/bio/$', views.edit_bio, name='edit_bio'),
 
-    url(r'^(?P<username>[a-z0-9]{3,})/password/$',
+    url(r'^(?P<username>[A-Za-z0-9]{3,})/password/$',
         views.edit_password, name='edit_password'),
 
-    url(r'^(?P<username>[a-z0-9]{3,})/account/$',
+    url(r'^(?P<username>[A-Za-z0-9]{3,})/account/$',
         views.edit_account, name='edit_account'),
 
-    url(r'^(?P<username>[a-z0-9]{3,})/location/$',
+    url(r'^(?P<username>[A-Za-z0-9]{3,})/location/$',
         views.edit_location, name='edit_location'),
 
-    url(r'^(?P<username>[a-z0-9]{3,})/finding/$',
+    url(r'^(?P<username>[A-Za-z0-9]{3,})/finding/$',
         views.edit_finding, name='edit_finding'),
 
-    url(r'^(?P<username>[a-z0-9]{3,})/delete/$',
+    url(r'^(?P<username>[A-Za-z0-9]{3,})/delete/$',
         views.delete_account_request, name='delete_account_request'),
 
-    url(r'^(?P<username>[a-z0-9]{3,})/delete/next/$',
+    url(r'^(?P<username>[A-Za-z0-9]{3,})/delete/next/$',
         views.delete_account_next, name='delete_account_next'),
 
-    url(r'^(?P<username>[a-z0-9]{3,})/delete/done/$',
+    url(r'^(?P<username>[A-Za-z0-9]{3,})/delete/done/$',
         views.delete_account_done, name='delete_account_done'),
 
-    url(r'^(?P<username>[a-z0-9]{3,})/delete/(?P<key>.+)/$',
+    url(r'^(?P<username>[A-Za-z0-9]{3,})/delete/(?P<key>.+)/$',
         views.delete_account, name='delete_account'),
 )
 

@@ -352,6 +352,7 @@ class FindingForm(forms.ModelForm):
     def clean_username(self):
         already_taken = _('That username is unavailable')
         username = self.cleaned_data['username']
+
         # Skip validation if they don't change the username
         if username != self.initial['username']:
             # No reserved usernames, or anything that looks like a 4 digit year
@@ -360,7 +361,7 @@ class FindingForm(forms.ModelForm):
                 raise forms.ValidationError(already_taken)
 
             try:
-                User.objects.get(username=username)
+                User.objects.get(username__exact=username)
             except User.DoesNotExist:
                 pass
             else:
